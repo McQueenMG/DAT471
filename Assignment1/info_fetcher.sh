@@ -42,8 +42,7 @@ if command -v nvidia-smi > /dev/null; then
 else
     lspci | grep -i "vga" | grep -i "nvidia" | awk -F ': ' '{print "GPU model: "$2}'
     lspci | grep -i "vga" | grep -i "nvidia" | wc -l | awk '{print "Number of GPUs: "$1}'
-    lspci -v | grep -i "vga" -A 20 | grep "Memory at" | grep -oP '\[size=\K[^\]]+' | \
-    awk 'function to_bytes(s) { if (s~/G/) return s+0*1024*1024*1024; if (s~/M/) return s+0*1024*1024; if (s~/K/) return s+0*1024; return s+0 } { if (to_bytes($1)>max) { max=to_bytes($1); val=$1 } } END { print "GPU RAM: "val }'
+    echo "GPU RAM: n/a"
 fi
 
 # Fetching filesystem type of /data
