@@ -1,27 +1,18 @@
-#!/bin/bash
-
-
-# List of things to fetch:
-# •The model of and the clock frequency1 of the CPU
-# •The number of physical CPUs (sockets in use), the number of cores, and
-# the number of hardware threads
-# •The instruction set architecture of the CPU
-# •The cache line length
-# •The amount of L1, L2, and L3 cache
-# •The amount of system RAM
-# •The number of GPUs and model of the GPU(s)2
-# •The amount of RAM on the GPU(s)
-# •The type of filesystem of /data
-# •The total amount of disk space and the amount of free space on /data
-# •The version of the Linux kernel running on the system and the GNU/Linux
-# distribution and its version running on the system
-# •The filename and the version of the default Python 3 interpreter available
-# on the system (globally installed)
+#!/usr/bin/env bash
+#SBATCH -t 00:01:00
+#SBATCH --nodelist=uranus
+#SBATCH -p short
+#SBATCH -J system_info
+#SBATCH --output=system_info_job_%j.log
 
 
 # Fetching CPU information
 lscpu | grep "Model name"
-lscpu | grep "CPU max MHz"
+if lscpu | grep "CPU max MHz" > /dev/null; then
+    lscpu | grep "CPU max MHz"
+else
+    echo "CPU MHz: Not available"
+fi
 
 # Fetching the number of physical CPUs, cores, and threads
 lscpu | grep "Socket(s)"
@@ -43,14 +34,17 @@ lscpu | grep "L3 cache"
 # Fetching system RAM
 free -h | grep "Mem" | awk '{print "Total RAM: "$2}'
 
-# Fetching number of GPUs and their models
-lspci | grep -i "vga" | wc -l | awk '{print "Number of GPUs: "$1}'
-lspci | grep -i "vga"
-
-# Fetching GPU RAM
-lspci -v | grep -i "vga" -A 20 | grep "Memory at" | grep -oP '\[size=\K[^\]]+' | \
-awk 'function to_bytes(s) { if (s~/G/) return s+0*1024*1024*1024; if (s~/M/) return s+0*1024*1024; if (s~/K/) return s+0*1024; return s+0 } { if (to_bytes($1)>max) { max=to_bytes($1); val=$1 } } END { print "GPU RAM: "val }'
-
+# Fetching GPU information
+if command -v nvidia-smi > /dev/null; then
+    nvidia-smi --query-gpu=name --format=csv,noheader | awk '{print "GPU model: "$0}'
+    nvidia-smi --query-gpu=name --format=csv,noheader | wc -l | awk '{print "Number of GPUs: "$1}'
+    nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{print "GPU RAM: "$0}'
+else
+    lspci | grep -i "vga" | grep -i "nvidia" | awk -F ': ' '{print "GPU model: "$2}'
+    lspci | grep -i "vga" | grep -i "nvidia" | wc -l | awk '{print "Number of GPUs: "$1}'
+    lspci -v | grep -i "vga" -A 20 | grep "Memory at" | grep -oP '\[size=\K[^\]]+' | \
+    awk 'function to_bytes(s) { if (s~/G/) return s+0*1024*1024*1024; if (s~/M/) return s+0*1024*1024; if (s~/K/) return s+0*1024; return s+0 } { if (to_bytes($1)>max) { max=to_bytes($1); val=$1 } } END { print "GPU RAM: "val }'
+fi
 
 # Fetching filesystem type of /data
 df -T /data | tail -1 | awk '{print "Filesystem type: "$2}'
@@ -66,5 +60,5 @@ cat /etc/os-release | grep "PRETTY_NAME" | awk '{print "Distribution: "$2}'
 which python3 | awk '{print "Python 3 interpreter: "$1}'
 python3 --version | awk '{print "Python 3 version: "$2}'
 
-
-
+# Copy the logs to an output file with the job ID and hostname
+cp system_info_job_${SLURM_JOB_ID}.log output/system_info_${SLURM_JOB_ID}_$(hostname).out
