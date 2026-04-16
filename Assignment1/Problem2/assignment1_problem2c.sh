@@ -22,6 +22,6 @@ else
     fi
 fi
 
-apptainer exec $containerpath python3 assignment1_problem2c_skeleton.py bike_sharing_hourly.csv
+apptainer exec $containerpath python3 assignment1_problem2c.py bike_sharing_hourly.csv
 
 cp container_database_$SLURM_JOB_ID.log $base_dir/output/container_database.out
