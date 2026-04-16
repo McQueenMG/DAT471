@@ -6,6 +6,7 @@
 
 containerpath="/data/courses/2026_dat471_dit066/containers/assignment1.sif"
 datapath="/data/courses/2026_dat471_dit066/datasets/bike_sharing_hourly.csv"
+base_dir="${SLURM_SUBMIT_DIR:-$PWD}"
 
 
 if ls bike_sharing_hourly.csv 2>/dev/null; then
@@ -23,4 +24,4 @@ fi
 
 apptainer exec $containerpath python3 /opt/mystery.py bike_sharing_hourly.csv | awk '{print "Output from mystery.py: "$0}'
 
-cp container_python_job_$SLURM_JOB_ID.log /data/users/melkergu/DAT471/Assignment1/Problem2/output/container_python.out
+cp container_python_job_$SLURM_JOB_ID.log $base_dir/output/container_python.out
