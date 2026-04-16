@@ -1,0 +1,11 @@
+bike_sharing_hourly.csv
+bike_sharing_hourly.csv already exists in the current directory.
+Number of rows in the dataset: 17379
+Average hourly bike count: 189.46308763450142
+Top 5 busiest hours based on average bike rentals:
+Hour: 17, Average Count: 461.45205479452056
+Hour: 18, Average Count: 425.510989010989
+Hour: 8, Average Count: 359.01100412654745
+Hour: 16, Average Count: 311.9835616438356
+Hour: 19, Average Count: 311.52335164835165
+Average daily bike rentals in January 2012: 55.50726744186046

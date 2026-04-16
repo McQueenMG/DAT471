@@ -1,0 +1,39 @@
+Model name:                              INTEL(R) XEON(R) GOLD 6548N
+CPU MHz: Not available
+Socket(s):                               2
+Core(s) per socket:                      32
+Thread(s) per core:                      2
+Architecture:                            x86_64
+LEVEL1_ICACHE_LINESIZE             64
+LEVEL1_DCACHE_LINESIZE             64
+LEVEL2_CACHE_LINESIZE              64
+LEVEL3_CACHE_LINESIZE              64
+LEVEL4_CACHE_LINESIZE              
+L1d cache:                               3 MiB (64 instances)
+L1i cache:                               2 MiB (64 instances)
+L2 cache:                                128 MiB (64 instances)
+L3 cache:                                120 MiB (2 instances)
+Total RAM: 503Gi
+GPU model: NVIDIA L4
+GPU model: NVIDIA L4
+GPU model: NVIDIA L4
+GPU model: NVIDIA L4
+GPU model: NVIDIA L4
+GPU model: NVIDIA L4
+GPU model: NVIDIA L4
+GPU model: NVIDIA L4
+Number of GPUs: 8
+GPU RAM: 23034
+GPU RAM: 23034
+GPU RAM: 23034
+GPU RAM: 23034
+GPU RAM: 23034
+GPU RAM: 23034
+GPU RAM: 23034
+GPU RAM: 23034
+Filesystem type: nfs4
+Total: 59T, Free: 8.6T
+Linux kernel version: 6.8.0-106-generic
+Distribution: 24.04.3
+Python 3 interpreter: /usr/bin/python3
+Python 3 version: 3.12.3
