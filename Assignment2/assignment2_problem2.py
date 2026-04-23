@@ -52,7 +52,6 @@ def count_words_in_file(file):
     return counts
 
 
-
 def get_top10(counts):
     """
     Determines the 10 words with the most occurrences.
@@ -64,7 +63,10 @@ def get_top10(counts):
     Return value:
     A list of (count,word) pairs (int,str)
     """
-    raise NotImplementedError
+    top10 = sorted(
+        [(v,k) for (k,v) in counts.items()],
+        reverse=True)[:10] 
+    return top10
 
 
 
@@ -99,7 +101,13 @@ def compute_checksum(counts):
     Return value:
     The checksum (int)
     """
-    raise NotImplementedError
+    
+    checksum = 0
+    for (k,v) in counts.items():
+        checksum += len(k) * v
+    
+    return checksum
+
 
 
 if __name__ == '__main__':
@@ -134,4 +142,12 @@ if __name__ == '__main__':
     global_counts = dict()
     for counts in file_counts:
         merge_counts(global_counts,counts)
+        
+    checksum = compute_checksum(global_counts)
+    print(f'Checksum: {checksum}')
+    
+    top10 = get_top10(global_counts)
+    print('Top 10 words:')
+    for (count, word) in top10:
+        print(f'{word}: {count}')
     
