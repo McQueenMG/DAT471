@@ -1,24 +1,131 @@
+from __future__ import annotations
+
+import argparse
+import re
+from pathlib import Path
+
 import matplotlib.pyplot as plt
+import numpy as np
 
 
-def plot_results(results):
-    """
-    Plots the results of the experiments.
+WORKER_RE = re.compile(r"num_workers\s*=\s*(\d+)")
+TOTAL_TIME_RE = re.compile(r"Total execution time:\s*([0-9]+(?:\.[0-9]+)?)\s*seconds")
 
-    Args:
-        results (dict): A dictionary containing the results of the experiments.
-                        The keys are the number of workers and the values are
-                        lists of execution times for each batch size.
 
-    Returns:
-        None
-    """
-    for workers, times in results.items():
-        plt.plot(times, label=f'{workers} workers')
-    
-    plt.xlabel('Batch Size')
-    plt.ylabel('Execution Time (seconds)')
-    plt.title('Execution Time vs Batch Size for Different Numbers of Workers')
+def parse_result_file(file_path: Path) -> tuple[int, float] | None:
+    """Return (num_workers, total_execution_time_seconds) for one result file."""
+    text = file_path.read_text(encoding="utf-8", errors="replace")
+
+    worker_match = WORKER_RE.search(text)
+    total_time_match = TOTAL_TIME_RE.search(text)
+
+    if worker_match is None or total_time_match is None:
+        return None
+
+    workers = int(worker_match.group(1))
+    total_time = float(total_time_match.group(1))
+    return workers, total_time
+
+
+def collect_results(results_dir: Path, pattern: str) -> list[tuple[int, float]]:
+    parsed: list[tuple[int, float]] = []
+    for file_path in sorted(results_dir.glob(pattern)):
+        if not file_path.is_file():
+            continue
+        result = parse_result_file(file_path)
+        if result is not None:
+            parsed.append(result)
+    return parsed
+
+
+def compute_speedup(results: list[tuple[int, float]]) -> list[tuple[int, float, float]]:
+    if not results:
+        return []
+
+    # Keep the fastest run if there are duplicate worker counts.
+    best_time_by_workers: dict[int, float] = {}
+    for workers, total_time in results:
+        previous = best_time_by_workers.get(workers)
+        if previous is None or total_time < previous:
+            best_time_by_workers[workers] = total_time
+
+    if 1 not in best_time_by_workers:
+        raise ValueError("Could not find a baseline run with num_workers=1.")
+
+    baseline = best_time_by_workers[1]
+    speedups: list[tuple[int, float, float]] = []
+    for workers in sorted(best_time_by_workers):
+        total_time = best_time_by_workers[workers]
+        speedup = baseline / total_time
+        speedups.append((workers, total_time, speedup))
+    return speedups
+
+
+def plot_speedup(speedup_data: list[tuple[int, float, float]], output_path: Path | None) -> None:
+    workers = [row[0] for row in speedup_data]
+    measured_speedup = [row[2] for row in speedup_data]
+    ideal_speedup = [1.97] * len(workers)
+
+    plt.figure(figsize=(9, 5.5))
+    plt.plot(workers, measured_speedup, marker="o", linewidth=2, label="Measured speedup")
+    plt.plot(workers, ideal_speedup, linestyle="--", linewidth=1.8, label="Ideal speedup")
+
+    plt.title("Speedup vs Number of Workers")
+    plt.xlabel("Number of workers")
+    plt.ylabel("Speedup (T1 / Tp)")
+    plt.xscale("log", base=2)
+    plt.xticks(2 ** np.arange(0, 7))  
+    plt.yticks(np.arange(0, 3.01, 0.2))
+    plt.xlim(0.95, 68)    
+    plt.margins(x=0)    
+    plt.grid(True, linestyle=":", linewidth=0.7)
     plt.legend()
-    plt.grid()
-    plt.show()
+    plt.tight_layout()
+
+    if output_path is not None:
+        plt.savefig(output_path, dpi=150)
+        print(f"Saved plot to: {output_path}")
+    else:
+        plt.show()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Plot speedup from assignment output files.")
+    parser.add_argument(
+        "--results-dir",
+        default=Path(__file__).parent / "output",
+        type=Path,
+        help="Directory containing result .out/.txt files (default: Assignment2/output).",
+    )
+    parser.add_argument(
+        "--pattern",
+        default="assignment2d-*.out",
+        help="Glob pattern used to pick result files (default: assignment2d-*.out).",
+    )
+    parser.add_argument(
+        "--save",
+        type=Path,
+        default=None,
+        help="Path to save the figure (e.g. speedup.png). If omitted, the plot is shown.",
+    )
+    args = parser.parse_args()
+
+    results = collect_results(args.results_dir, args.pattern)
+    speedup_data = compute_speedup(results)
+
+    if not speedup_data:
+        raise ValueError(
+            f"No parseable files found in '{args.results_dir}' matching pattern '{args.pattern}'."
+        )
+
+    print("Parsed runs:")
+    for workers, total_time, speedup in speedup_data:
+        print(f"workers={workers:>3}, time={total_time:>9.2f}s, speedup={speedup:>6.3f}")
+
+    plot_speedup(speedup_data, args.save)
+
+
+if __name__ == "__main__":
+	main()
+
+

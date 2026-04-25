@@ -3,6 +3,8 @@
 #SBATCH --nodelist=callisto
 #SBATCH -p short
 #SBATCH -J system_info
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=64
 #SBATCH --output=assignment2d_%j.log
 
 base_dir="${SLURM_SUBMIT_DIR:-$PWD}"
