@@ -108,9 +108,27 @@ def compute_checksum(counts):
     
     return checksum
 
+def compute_single_checksum(count):
+    """
+    Computes the checksum for one count as follows:
+    The checksum is the of the length of the word times its count
+
+    Parameters:
+    - count, dictionary : word to count dictionary
+
+    Return value:
+    The checksum (int)
+    """
+    
+    checksum = len(count[0]) * count[1]
+    
+    return checksum
+
 
 
 if __name__ == '__main__':
+    total_start_time = time.time()
+    start_time = time.time()
     parser = argparse.ArgumentParser(description='Counts words of all the text files in the given directory')
     parser.add_argument('-w', '--num-workers', help = 'Number of workers', default=1, type=int)
     parser.add_argument('-b', '--batch-size', help = 'Batch size', default=1, type=int)
@@ -132,22 +150,41 @@ if __name__ == '__main__':
     if batch_size < 1:
         sys.stderr.write(f'{sys.argv[0]}: ERROR: Batch size must be positive (got {batch_size})!\n')
         quit(1)
-
+        
+    print(f'Finished parsing arguments in {time.time() - start_time:.2f} seconds.')
+    
+    start_time = time.time()
     files = [get_file(fn) for fn in get_filenames(path)]
-
+    print(f'Finished reading files in {time.time() - start_time:.2f} seconds.')
+    
+    start_time = time.time()
     file_counts = list()
     for file in files:
         file_counts.append(count_words_in_file(file))
+    print(f'Finished counting words in files in {time.time() - start_time:.2f} seconds.')
+        
+    # with mp.Pool(num_workers) as pool:
+    #     file_counts = pool.map(count_words_in_file, files)
 
+    start_time = time.time()
     global_counts = dict()
     for counts in file_counts:
-        merge_counts(global_counts,counts)
+        merge_counts(global_counts, counts)
+    print(f'Finished merging counts in {time.time() - start_time:.2f} seconds.')
         
+    start_time = time.time()
     checksum = compute_checksum(global_counts)
+    # with mp.Pool(num_workers) as pool:
+    #     checksum = sum(pool.map(compute_single_checksum, global_counts.items()))
     print(f'Checksum: {checksum}')
+    print(f'Finished computing checksum in {time.time() - start_time:.2f} seconds.')
     
+    start_time = time.time()
     top10 = get_top10(global_counts)
     print('Top 10 words:')
     for (count, word) in top10:
         print(f'{word}: {count}')
+    print(f'Finished computing top 10 in {time.time() - start_time:.2f} seconds.')
+    
+    print(f'Total execution time: {time.time() - total_start_time:.2f} seconds.')
     

@@ -1,12 +1,19 @@
-Output from assignment2_problem2.py: Checksum: 1885973
-Output from assignment2_problem2.py: Top 10 words:
-Output from assignment2_problem2.py: the: 20769
-Output from assignment2_problem2.py: of: 11549
-Output from assignment2_problem2.py: and: 10847
-Output from assignment2_problem2.py: to: 10107
-Output from assignment2_problem2.py: a: 7737
-Output from assignment2_problem2.py: in: 6555
-Output from assignment2_problem2.py: that: 4690
-Output from assignment2_problem2.py: I: 4287
-Output from assignment2_problem2.py: his: 3866
-Output from assignment2_problem2.py: was: 3748
+Finished parsing arguments in 0.01 seconds.
+Finished reading files in 0.02 seconds.
+Finished counting words in files in 0.08 seconds.
+Finished merging counts in 0.01 seconds.
+Checksum: 1885973
+Finished computing checksum in 0.00 seconds.
+Top 10 words:
+the: 20769
+of: 11549
+and: 10847
+to: 10107
+a: 7737
+in: 6555
+that: 4690
+I: 4287
+his: 3866
+was: 3748
+Finished computing top 10 in 0.03 seconds.
+Total execution time: 0.15 seconds.
