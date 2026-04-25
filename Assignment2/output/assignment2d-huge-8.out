@@ -1,10 +1,10 @@
 Parser arguments: num_workers=8, batch_size=1, path=/mnt/data
-Finished parsing arguments in 0.01 seconds.
-Finished reading files in 53.82 seconds.
-Finished counting words in files in parallel in 550.27 seconds.
-Finished merging counts in 202.58 seconds.
+Finished parsing arguments in 0.05 seconds.
+Finished reading files in 52.46 seconds.
+Finished counting words in files in parallel in 174.24 seconds.
+Finished merging counts in 257.05 seconds.
 Checksum: 14880058115
-Finished computing checksum in 3.71 seconds.
+Finished computing checksum in 6.23 seconds.
 Top 10 words:
 the: 148499457
 of: 89408738
@@ -16,5 +16,5 @@ that: 24646774
 was: 24224366
 is: 19939759
 I: 19103566
-Finished computing top 10 in 82.73 seconds.
-Total execution time: 893.12 seconds.
+Finished computing top 10 in 120.88 seconds.
+Total execution time: 610.91 seconds.

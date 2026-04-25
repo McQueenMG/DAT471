@@ -4,13 +4,13 @@
 #SBATCH -p short
 #SBATCH -J system_info
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=64
+#SBATCH --cpus-per-task=1
 #SBATCH --output=assignment2d_%j.log
 
 base_dir="${SLURM_SUBMIT_DIR:-$PWD}"
 
 datasize="huge"
-workers=64
+workers=1
 batch_size=1
 
 containerpath="/data/courses/2026_dat471_dit066/containers/assignment2.sif"
