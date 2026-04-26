@@ -71,7 +71,7 @@ def compute_speedup(
 def plot_speedup(speedup_data: list[tuple[int, float, float]], output_path: Path | None) -> None:
     workers = [row[0] for row in speedup_data]
     measured_speedup = [row[2] for row in speedup_data]
-    ideal_speedup = [1.97] * len(workers)
+    ideal_speedup = [2.63] * len(workers)
 
     plt.figure(figsize=(9, 5.5))
     plt.plot(workers, measured_speedup, marker="o", linewidth=2, label="Measured speedup")
