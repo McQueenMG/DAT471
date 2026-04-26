@@ -152,27 +152,33 @@ if __name__ == '__main__':
     if batch_size < 1:
         sys.stderr.write(f'{sys.argv[0]}: ERROR: Batch size must be positive (got {batch_size})!\n')
         quit(1)
+    print(f'Parser arguments: num_workers={num_workers}, batch_size={batch_size}, path={path}')
 
     # construct workers and queues
     filename_queue = mp.Queue()
+    wordcount_queue = mp.Queue()
     output_queue = mp.Queue()
     
     workers = [mp.Process(target=count_words_in_file, args=(filename_queue,output_queue,batch_size)) for _ in range(num_workers)]
+    print(f'Constructed {len(workers)} workers.')
     for w in workers:
         w.start()
     
     # construct a special merger process
     merger_process = mp.Process(target=merge_counts, args=(output_queue,wordcount_queue,num_workers))
+    print(f'Constructed {len(merger_process)} merger process.')
     merger_process.start()
 
         
     # put filenames into the input queue
     worker_time = time.time() - total_start_time
-    for filaname in get_filenames(path):
+    for filename in get_filenames(path):
         filename_queue.put(filename)
+    print(f'Finished putting filenames in the queue in {time.time() - worker_time:.2f} seconds.')
     
     for _ in range(num_workers):
         filename_queue.put(None) 
+    print(f'Finished putting sentinels in the queue in {time.time() - worker_time:.2f} seconds.')
     print(f'Worker execution time: {time.time() - worker_time}')
     
     for w in workers:
