@@ -111,6 +111,8 @@ def compute_checksum(counts):
 
 
 if __name__ == '__main__':
+    total_start_time = time.time()
+    start_time = time.time()
     parser = argparse.ArgumentParser(description='Counts words of all the text files in the given directory')
     parser.add_argument('-w', '--num-workers', help = 'Number of workers', default=1, type=int)
     parser.add_argument('-b', '--batch-size', help = 'Batch size', default=1, type=int)
@@ -133,23 +135,35 @@ if __name__ == '__main__':
         sys.stderr.write(f'{sys.argv[0]}: ERROR: Batch size must be positive (got {batch_size})!\n')
         quit(1)
         
+    print(f'Finished parsing arguments in {time.time() - start_time:.2f} seconds.')
+    
+    start_time = time.time()
     files = [get_file(fn) for fn in get_filenames(path)]
-
+    print(f'Finished reading files in {time.time() - start_time:.2f} seconds.')
+    
+    start_time = time.time()
     file_counts = list()
     for file in files:
         file_counts.append(count_words_in_file(file))
-        
+    print(f'Finished counting words in files in {time.time() - start_time:.2f} seconds.')
 
+    start_time = time.time()
     global_counts = dict()
     for counts in file_counts:
         merge_counts(global_counts, counts)
-    
+    print(f'Finished merging counts in {time.time() - start_time:.2f} seconds.')
         
+    start_time = time.time()
     checksum = compute_checksum(global_counts)
     print(f'Checksum: {checksum}')
+    print(f'Finished computing checksum in {time.time() - start_time:.2f} seconds.')
     
+    start_time = time.time()
     top10 = get_top10(global_counts)
     print('Top 10 words:')
     for (count, word) in top10:
         print(f'{word}: {count}')
+    print(f'Finished computing top 10 in {time.time() - start_time:.2f} seconds.')
+    
+    print(f'Total execution time: {time.time() - total_start_time:.2f} seconds.')
     

@@ -171,6 +171,9 @@ if __name__ == '__main__':
         
     start_time = time.time()
     checksum = compute_checksum(global_counts)
+    # Can be parallelized but was not asked for in problem d
+    # With mp.Pool(num_workers) as pool:
+    #     checksum = sum(pool.map(compute_single_checksum, global_counts.items()))
     print(f'Checksum: {checksum}')
     print(f'Finished computing checksum in {time.time() - start_time:.2f} seconds.')
     

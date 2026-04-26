@@ -33,23 +33,24 @@ def get_file(path):
     with open(path,'r') as f:
         return f.read()
 
-def count_words_in_file(file):
+def count_words_in_file(filename):
     """
     Counts the number of occurrences of words in the file
     Whitespace is ignored
 
     Parameters:
-    - file, string : the content of a file
+    - filename, string : the path to a file
 
     Returns: Dictionary that maps words (strings) to counts (ints)
     """
-    counts = dict()
-    for word in file.split():
-        if word in counts:
-            counts[word] += 1
-        else:
-            counts[word] = 1
-    return counts
+    with open(filename,'r') as f:
+        counts = dict()
+        for word in f.read().split():
+            if word in counts:
+                counts[word] += 1
+            else:
+                counts[word] = 1
+        return counts
 
 
 def get_top10(counts):
@@ -108,9 +109,27 @@ def compute_checksum(counts):
     
     return checksum
 
+def compute_single_checksum(count):
+    """
+    Computes the checksum for one count as follows:
+    The checksum is the of the length of the word times its count
+
+    Parameters:
+    - count, dictionary : word to count dictionary
+
+    Return value:
+    The checksum (int)
+    """
+    
+    checksum = len(count[0]) * count[1]
+    
+    return checksum
+
 
 
 if __name__ == '__main__':
+    total_start_time = time.time()
+    start_time = time.time()
     parser = argparse.ArgumentParser(description='Counts words of all the text files in the given directory')
     parser.add_argument('-w', '--num-workers', help = 'Number of workers', default=1, type=int)
     parser.add_argument('-b', '--batch-size', help = 'Batch size', default=1, type=int)
@@ -132,24 +151,32 @@ if __name__ == '__main__':
     if batch_size < 1:
         sys.stderr.write(f'{sys.argv[0]}: ERROR: Batch size must be positive (got {batch_size})!\n')
         quit(1)
-        
-    files = [get_file(fn) for fn in get_filenames(path)]
-
+    print(f'Parser arguments: num_workers={num_workers}, batch_size={batch_size}, path={path}')
+    print(f'Finished parsing arguments in {time.time() - start_time:.2f} seconds.')
+    
+    start_time = time.time()
     file_counts = list()
-    for file in files:
-        file_counts.append(count_words_in_file(file))
-        
+    with mp.Pool(num_workers) as pool:
+        file_counts = pool.map(count_words_in_file, get_filenames(path))
+    print(f'Finished counting words and reading files in parallel in {time.time() - start_time:.2f} seconds.')
 
+    start_time = time.time()
     global_counts = dict()
     for counts in file_counts:
         merge_counts(global_counts, counts)
-    
+    print(f'Finished merging counts in {time.time() - start_time:.2f} seconds.')
         
+    start_time = time.time()
     checksum = compute_checksum(global_counts)
     print(f'Checksum: {checksum}')
+    print(f'Finished computing checksum in {time.time() - start_time:.2f} seconds.')
     
+    start_time = time.time()
     top10 = get_top10(global_counts)
     print('Top 10 words:')
     for (count, word) in top10:
         print(f'{word}: {count}')
+    print(f'Finished computing top 10 in {time.time() - start_time:.2f} seconds.')
+    
+    print(f'Total execution time: {time.time() - total_start_time:.2f} seconds.')
     

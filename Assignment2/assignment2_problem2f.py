@@ -4,6 +4,8 @@ import sys
 import time
 import multiprocessing as mp
 
+global_counts = {}
+
 def get_filenames(path):
     """
     A generator function: Iterates through all .txt files in the path and
@@ -47,7 +49,25 @@ def count_words_in_file(filename_queue,wordcount_queue,batch_size):
 
     Returns: None
     """
-    raise NotImplementedError
+    
+    batch = []
+    while (filename := filename_queue.get()) is not None:
+        counts = dict()
+        for word in get_file(filename).split():
+            if word in counts:
+                counts[word] += 1
+            else:
+                counts[word] = 1
+        batch.append(counts)
+        if len(batch) >= batch_size:
+            for counts in batch:
+                wordcount_queue.put(counts)
+            batch = []
+    
+    for counts in batch:
+        wordcount_queue.put(counts)
+    wordcount_queue.put(None)
+    return None
 
 
 
@@ -78,7 +98,20 @@ def merge_counts(out_queue,wordcount_queue,num_workers):
 
     Return value: None
     """
-    raise NotImplementedError
+    none_count = 0
+    while none_count < num_workers:
+        if (counts := wordcount_queue.get()) is None:
+            none_count += 1
+        else:
+            for (k,v) in counts.items():
+                if k not in global_counts:
+                    global_counts[k] = v
+                else:
+                    global_counts[k] += v
+                    
+    out_queue.put(compute_checksum(global_counts))
+    out_queue.put(get_top10(global_counts))
+    return None
 
 
 
@@ -97,6 +130,7 @@ def compute_checksum(counts):
 
 
 if __name__ == '__main__':
+    total_start_time = time.time()
     parser = argparse.ArgumentParser(description='Counts words of all the text files in the given directory')
     parser.add_argument('-w', '--num-workers', help = 'Number of workers', default=1, type=int)
     parser.add_argument('-b', '--batch-size', help = 'Batch size', default=1, type=int)
@@ -120,8 +154,38 @@ if __name__ == '__main__':
         quit(1)
 
     # construct workers and queues
+    filename_queue = mp.Queue()
+    output_queue = mp.Queue()
+    
+    workers = [mp.Process(target=count_words_in_file, args=(filename_queue,output_queue,batch_size)) for _ in range(num_workers)]
+    for w in workers:
+        w.start()
+    
     # construct a special merger process
+    merger_process = mp.Process(target=merge_counts, args=(output_queue,wordcount_queue,num_workers))
+    merger_process.start()
+
+        
     # put filenames into the input queue
+    worker_time = time.time() - total_start_time
+    for filaname in get_filenames(path):
+        filename_queue.put(filename)
+    
+    for _ in range(num_workers):
+        filename_queue.put(None) 
+    print(f'Worker execution time: {time.time() - worker_time}')
+    
+    for w in workers:
+        w.join()
     # workers then put dictionaries for the merger
     # the merger shall return the checksum and top 10 through the out queue
     
+    checksum = output_queue.get()
+    print(f'Checksum: {checksum}')
+    top10 = output_queue.get()
+    print('Top 10 words:')
+    for (count, word) in top10:
+        print(f'{word}: {count}')
+    
+    merger_process.join()
+    print(f'Total execution time: {time.time() - total_start_time}')
