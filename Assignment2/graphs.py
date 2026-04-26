@@ -27,6 +27,15 @@ def parse_result_file(file_path: Path) -> tuple[int, float] | None:
     return workers, total_time
 
 
+def parse_total_time(file_path: Path) -> float | None:
+    """Return the total execution time from a sequential or parallel result file."""
+    text = file_path.read_text(encoding="utf-8", errors="replace")
+    total_time_match = TOTAL_TIME_RE.search(text)
+    if total_time_match is None:
+        return None
+    return float(total_time_match.group(1))
+
+
 def collect_results(results_dir: Path, pattern: str) -> list[tuple[int, float]]:
     parsed: list[tuple[int, float]] = []
     for file_path in sorted(results_dir.glob(pattern)):
@@ -38,7 +47,9 @@ def collect_results(results_dir: Path, pattern: str) -> list[tuple[int, float]]:
     return parsed
 
 
-def compute_speedup(results: list[tuple[int, float]]) -> list[tuple[int, float, float]]:
+def compute_speedup(
+    results: list[tuple[int, float]], baseline_time: float
+) -> list[tuple[int, float, float]]:
     if not results:
         return []
 
@@ -49,14 +60,10 @@ def compute_speedup(results: list[tuple[int, float]]) -> list[tuple[int, float, 
         if previous is None or total_time < previous:
             best_time_by_workers[workers] = total_time
 
-    if 1 not in best_time_by_workers:
-        raise ValueError("Could not find a baseline run with num_workers=1.")
-
-    baseline = best_time_by_workers[1]
     speedups: list[tuple[int, float, float]] = []
     for workers in sorted(best_time_by_workers):
         total_time = best_time_by_workers[workers]
-        speedup = baseline / total_time
+        speedup = baseline_time / total_time
         speedups.append((workers, total_time, speedup))
     return speedups
 
@@ -108,16 +115,33 @@ def main() -> None:
         default=None,
         help="Path to save the figure (e.g. speedup.png). If omitted, the plot is shown.",
     )
+    parser.add_argument(
+        "--baseline-file",
+        type=Path,
+        default=Path(__file__).parent / "output" / "assignment2c-huge.out",
+        help=(
+            "Path to the sequential baseline result file (default: "
+            "Assignment2/output/assignment2c-huge.out)."
+        ),
+    )
     args = parser.parse_args()
 
     results = collect_results(args.results_dir, args.pattern)
-    speedup_data = compute_speedup(results)
+    baseline_time = parse_total_time(args.baseline_file)
+
+    if baseline_time is None:
+        raise ValueError(
+            f"Could not parse a total execution time from baseline file '{args.baseline_file}'."
+        )
+
+    speedup_data = compute_speedup(results, baseline_time)
 
     if not speedup_data:
         raise ValueError(
             f"No parseable files found in '{args.results_dir}' matching pattern '{args.pattern}'."
         )
 
+    print(f"Sequential baseline: {baseline_time:.2f}s from {args.baseline_file}")
     print("Parsed runs:")
     for workers, total_time, speedup in speedup_data:
         print(f"workers={workers:>3}, time={total_time:>9.2f}s, speedup={speedup:>6.3f}")
@@ -126,6 +150,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-	main()
+    main()
 
 
