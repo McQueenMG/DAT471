@@ -1,0 +1,19 @@
+Parser arguments: num_workers=8, batch_size=128, path=/mnt/data
+Constructed 8 workers.
+Constructed True merger process.
+Finished putting filenames in the queue in 1777296489.56 seconds.
+Finished putting sentinels in the queue in 1777296489.56 seconds.
+Worker execution time: 1777296489.5569184
+Checksum: 14880058115
+Top 10 words:
+the: 148499457
+of: 89408738
+and: 72120653
+to: 61762640
+a: 51211506
+in: 44714455
+that: 24646774
+was: 24224366
+is: 19939759
+I: 19103566
+Total execution time: 471.3839430809021

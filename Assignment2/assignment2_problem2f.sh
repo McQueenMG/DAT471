@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 #SBATCH -t 00:30:00
-#SBATCH --nodelist=callisto
 #SBATCH -p short
 #SBATCH -J assignment2f
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
+#SBATCH --cpus-per-task=64
 #SBATCH --output=assignment2f_%j.log
 
 base_dir="${SLURM_SUBMIT_DIR:-$PWD}"
 
 datasize="huge"
-workers=32
+workers=64
 batch_size=128
 
 containerpath="/data/courses/2026_dat471_dit066/containers/assignment2.sif"

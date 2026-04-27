@@ -82,17 +82,20 @@ def get_top10(counts):
     Return value:
     A list of (count,word) pairs (int,str)
     """
-    raise NotImplementedError
+    top10 = sorted(
+        [(v,k) for (k,v) in counts.items()],
+        reverse=True)[:10] 
+    return top10
 
 
 
-def merge_counts(out_queue,wordcount_queue,num_workers):
+def merge_counts(output_queue,wordcount_queue,num_workers):
     """
     Merges the counts from the queue into the shared dict global_counts. 
     Quits when num_workers Nones have been encountered.
 
     Parameters:
-    - global_counts, manager dict : global dictionary where to store the counts
+    - output_queue, multiprocessing queue : the checksum and top 10 will be put in this queue when the merging is done
     - wordcount_queue, manager queue : queue that contains (word,count) pairs and Nones to signal end of input from a worker
     - num_workers, int : number of workers (i.e., how many Nones to expect)
 
@@ -109,8 +112,8 @@ def merge_counts(out_queue,wordcount_queue,num_workers):
                 else:
                     global_counts[k] += v
                     
-    out_queue.put(compute_checksum(global_counts))
-    out_queue.put(get_top10(global_counts))
+    output_queue.put(compute_checksum(global_counts))
+    output_queue.put(get_top10(global_counts))
     return None
 
 
@@ -126,7 +129,11 @@ def compute_checksum(counts):
     Return value:
     The checksum (int)
     """
-    raise NotImplementedError
+    checksum = 0
+    for (k,v) in counts.items():
+        checksum += len(k) * v
+    
+    return checksum
 
 
 if __name__ == '__main__':
@@ -159,14 +166,14 @@ if __name__ == '__main__':
     wordcount_queue = mp.Queue()
     output_queue = mp.Queue()
     
-    workers = [mp.Process(target=count_words_in_file, args=(filename_queue,output_queue,batch_size)) for _ in range(num_workers)]
+    workers = [mp.Process(target=count_words_in_file, args=(filename_queue,wordcount_queue,batch_size)) for _ in range(num_workers)]
     print(f'Constructed {len(workers)} workers.')
     for w in workers:
         w.start()
     
     # construct a special merger process
     merger_process = mp.Process(target=merge_counts, args=(output_queue,wordcount_queue,num_workers))
-    print(f'Constructed {len(merger_process)} merger process.')
+    print(f'Constructed {merger_process is not None} merger process.')
     merger_process.start()
 
         
