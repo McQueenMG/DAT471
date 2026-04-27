@@ -9,7 +9,7 @@ import numpy as np
 
 
 WORKER_RE = re.compile(r"num_workers\s*=\s*(\d+)")
-TOTAL_TIME_RE = re.compile(r"Total execution time:\s*([0-9]+(?:\.[0-9]+)?)\s*seconds")
+TOTAL_TIME_RE = re.compile(r"Total execution time:\s*([0-9]+(?:\.[0-9]+)?)")
 
 
 def parse_result_file(file_path: Path) -> tuple[int, float] | None:
@@ -39,6 +39,7 @@ def parse_total_time(file_path: Path) -> float | None:
 def collect_results(results_dir: Path, pattern: str) -> list[tuple[int, float]]:
     parsed: list[tuple[int, float]] = []
     for file_path in sorted(results_dir.glob(pattern)):
+        print(f"Parsing file: {file_path}")
         if not file_path.is_file():
             continue
         result = parse_result_file(file_path)
@@ -134,6 +135,7 @@ def main() -> None:
             f"Could not parse a total execution time from baseline file '{args.baseline_file}'."
         )
 
+    print(f"Found {len(results)} parseable result files in '{args.results_dir}' matching pattern '{args.pattern}'.")
     speedup_data = compute_speedup(results, baseline_time)
 
     if not speedup_data:
