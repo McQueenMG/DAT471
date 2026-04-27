@@ -2,6 +2,8 @@
 #SBATCH -t 00:30:00
 #SBATCH --nodelist=callisto
 #SBATCH -p short
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
 #SBATCH -J system_info
 #SBATCH --output=assignment2c_%j.log
 
