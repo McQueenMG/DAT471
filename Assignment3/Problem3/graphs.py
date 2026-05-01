@@ -6,7 +6,8 @@ import os
 import re
 
 # Read timing data from output files
-output_dir = '/data/users/melkergu/DAT471/Assignment3/Problem3/output'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+output_dir = os.path.join(script_dir, 'output')
 data = {}
 
 for filename in os.listdir(output_dir):
@@ -35,24 +36,22 @@ speedup = [baseline_time / t for t in times]
 plt.figure(figsize=(10, 6))
 plt.plot(cores, speedup, marker='o', linewidth=2, markersize=8, label='Empirical Speedup')
 
-# Add ideal linear speedup for comparison
-ideal_speedup = cores
-plt.plot(cores, ideal_speedup, marker='s', linewidth=2, markersize=6, linestyle='--', label='Ideal Linear Speedup')
-
 # Labels and title
 plt.xlabel('Number of Cores', fontsize=12)
 plt.ylabel('Speedup', fontsize=12)
 plt.title('Empirical Speedup vs. Number of Cores (10M Dataset)', fontsize=14)
+plt.xscale("log", base=2)
 plt.grid(True, alpha=0.3)
 plt.legend(fontsize=11)
 plt.xticks(cores)
 
 # Set axis limits with some padding
 plt.xlim(0, 34)
-plt.ylim(0, max(ideal_speedup) + 2)
+plt.ylim(0, max(speedup) + 2)
 
 plt.tight_layout()
-plt.savefig('/data/users/melkergu/DAT471/Assignment3/Problem3/output/speedup_plot.png', dpi=300)
+output_file = os.path.join(output_dir, 'speedup_plot.png')
+plt.savefig(output_file, dpi=300)
 print("Speedup plot saved to output/speedup_plot.png")
 
 # Print speedup values for reference
