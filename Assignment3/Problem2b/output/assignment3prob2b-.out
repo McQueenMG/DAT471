@@ -1,0 +1,22 @@
+No configs found; falling back on auto-configuration
+No configs specified for local runner
+Creating temp directory /tmp/assignment3_problem2b.melkergu.20260501.111837.123907
+Running step 1 of 2...
+Running step 2 of 2...
+job output is in /tmp/assignment3_problem2b.melkergu.20260501.111837.123907/output
+Streaming final output from /tmp/assignment3_problem2b.melkergu.20260501.111837.123907/output...
+"Beta Scorpii"	12680
+"Delta Tauri"	12080
+"Alpha Ceti"	11739
+"Alpha Centauri"	11476
+"Delta Aurigae"	11005
+"Beta Cephei"	10447
+"Zeeman"	10421
+"Zeta Vulpeculae"	9404
+"Beta Normae"	9153
+"Delta Brahe"	9100
+Removing temp directory /tmp/assignment3_problem2b.melkergu.20260501.111837.123907...
+
+real	0m5.975s
+user	1m58.895s
+sys	0m23.095s
