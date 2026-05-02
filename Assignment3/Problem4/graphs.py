@@ -11,7 +11,7 @@ output_dir = os.path.join(script_dir, 'output')
 data = {}
 
 for filename in os.listdir(output_dir):
-    if filename.startswith('assignment3prob3b-10M-') and filename.endswith('.out'):
+    if filename.startswith('assignment3prob4-10M-') and filename.endswith('.out'):
         filepath = os.path.join(output_dir, filename)
         with open(filepath, 'r') as f:
             content = f.read()

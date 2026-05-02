@@ -14,7 +14,8 @@ class MRJobTwitterFollowers(MRJob):
         - line: A string in the format "user: followed_user1 followed_user2 ..."
         
         Return Value:
-        A tuple consisting of the original user and the number of users they follow. (user, count)
+        A tuple consisting of the followed user and a count of 1. (followed_user, 1)
+        Additionally, it yields a tuple to count the total number of users. ('total_users', 1)
         """
         
         user, followed_users_str = line.split(':')
@@ -38,10 +39,7 @@ class MRJobTwitterFollowers(MRJob):
         Return Value:
         A tuple consisting of a user and their total followers count within a node. (user, followers_count)
         """
-        if user == 'total_users':
-            yield ('total_users', sum(counts))
-        else:
-            yield (user, sum(counts))
+        yield (user, sum(counts))
 
 
     def reducer(self, user, values):
@@ -51,11 +49,11 @@ class MRJobTwitterFollowers(MRJob):
         
         Parameter:
         - user: A string representing a user ID.
-        - values: An iterable of counts representing the number of users that the user follows, calculated by the mapper within a node.
+        - values: An iterable of counts representing the number of followers for the user, calculated by the mapper within a node.
         
         Return Value:
-        A tuple consisting of a user, and their total follows count.
-        (user, follows_count)
+        A tuple consisting of a user, and their total followers count.
+        (user, followers_count)
         """
     
             
@@ -67,18 +65,18 @@ class MRJobTwitterFollowers(MRJob):
         
     def statistics_reducer(self, _, counts):
         """
-        Uses the output of the first reducer to compute the user with the most follows, how many they follow,
+        Uses the output of the first reducer to compute the user with the most followers, how many they follow,
         the average number of followers, and the count of users that follow no-one.  
                
         Parameter:
         - user: A string representing a user ID.
-        - values: An iterable of tuples, where each tuple consists of a user and their total follows count, calculated by the first reducer.
+        - values: An iterable of tuples, where each tuple consists of a user and their total followers count, calculated by the first reducer.
         
         Return Value:
         A tuple consisting of a key and a value for each of the following statistics:
-        - ('id with most follows', user_id)
-        - ('most follows of any id', follows_count)
-        - ('average follows of all ids', average_follows)
+        - ('id with most followers', user_id)
+        - ('most followers of any id', followers_count)
+        - ('average followers of all ids', average_followers)
         - ('count of ids that follows no-one', count_follows_no_one)
         """
         
