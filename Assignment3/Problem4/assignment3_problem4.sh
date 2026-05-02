@@ -4,10 +4,10 @@
 #SBATCH -J twitter_followers
 #SBATCH --output=assignment3prob4_%j.log
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=32
+#SBATCH --cpus-per-task=64
 
 base_dir="${SLURM_SUBMIT_DIR:-$PWD}"
-data_size=1k
+data_size=full
 
 containerpath="/data/courses/2026_dat471_dit066/containers/assignment3.sif"
 twitter_datapath="/data/courses/2026_dat471_dit066/datasets/twitter/twitter-2010_${data_size}.txt"

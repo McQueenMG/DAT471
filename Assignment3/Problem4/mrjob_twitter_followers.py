@@ -14,45 +14,34 @@ class MRJobTwitterFollowers(MRJob):
         - line: A string in the format "user: followed_user1 followed_user2 ..."
         
         Return Value:
-        A tuple consisting of a followed user and a count of 1 to signinfy that they now have +1 follower. (followed_user, ('follower', 1))
-        A tuple consisting of the original user and the number of users they follow. (user, ('follows', count))
+        A tuple consisting of the original user and the number of users they follow. (user, count)
         """
         
         user, followed_users_str = line.split(':')
         user = user.strip()
         followed_users = followed_users_str.split()
-    
-        for followed_user in followed_users:
-            yield (followed_user, ('follower', 1))
-            
-        yield (user, ('follows', len(followed_users)))
-            
-            
-    def combiner(self, user, values):
-        """
-        Summarises the counts of followers and follows for each user within one node before sending them to the reducer.
         
-        Parameter:
+        for followed_user in followed_users:
+            followed_user = followed_user.strip()
+            yield (followed_user, 1)
+        yield ('total_users', 1)
+            
+            
+    def combiner(self, user, counts):
+        """
+        Combines the counts of followers for each user within one node
+
+        Parameters:
         - user: A string representing a user ID.
-        - values: An iterable of tuples, where each tuple is either:
-            - ('follower', 1) indicating that this user has one more follower.
-            - ('follows', count) indicating that this user follows 'count' users.
+        - counts: An iterable of counts representing the number of followers for the user, calculated by the mapper within a node.
         
         Return Value:
-        A tuple consisting of a followed user and a count of their total followers. (followed_user, ('follower', follower_count))
-        A tuple consisting of the original user and the number of users they follow. (user, ('follows', follows_count))
+        A tuple consisting of a user and their total followers count within a node. (user, followers_count)
         """
-        
-        follower_count = 0
-        follows_count = 0
-        for value_type, count in values:
-            if value_type == 'follower':
-                follower_count += count
-            elif value_type == 'follows':
-                follows_count += count
-        yield (user, ('follower', follower_count))
-        yield (user, ('follows', follows_count))
-
+        if user == 'total_users':
+            yield ('total_users', sum(counts))
+        else:
+            yield (user, sum(counts))
 
 
     def reducer(self, user, values):
@@ -62,23 +51,19 @@ class MRJobTwitterFollowers(MRJob):
         
         Parameter:
         - user: A string representing a user ID.
-        - values: An iterable of tuples, where each tuple is either:
-            - ('follower', count) indicating that this user has 'count' more followers.
-            - ('follows', count) indicating that this user follows 'count' users.
+        - values: An iterable of counts representing the number of users that the user follows, calculated by the mapper within a node.
         
         Return Value:
-        A tuple consisting of a user, their total follower count, and their total follows count. 
-        (user, follower_count, follows_count)
+        A tuple consisting of a user, and their total follows count.
+        (user, follows_count)
         """
-        follower_count = 0
-        follows_count = 0
-        for value_type, count in values:
-            if value_type == 'follower':
-                follower_count += count
-            elif value_type == 'follows':
-                follows_count += count
+    
+            
+        followers_count = 0
+        for count in values:
+            followers_count += count
                     
-        yield (None, (user, follower_count, follows_count))
+        yield (None, (user, followers_count))
         
     def statistics_reducer(self, _, counts):
         """
@@ -87,42 +72,44 @@ class MRJobTwitterFollowers(MRJob):
                
         Parameter:
         - user: A string representing a user ID.
-        - values: An iterable of tuples, where each tuple is either:
-            - ('follower', count) indicating that this user has 'count' more followers.
-            - ('follows', count) indicating that this user follows 'count' users.
+        - values: An iterable of tuples, where each tuple consists of a user and their total follows count, calculated by the first reducer.
         
         Return Value:
         A tuple consisting of a key and a value for each of the following statistics:
         - ('id with most follows', user_id)
         - ('most follows of any id', follows_count)
-        - ('average followers of all ids', average_followers)
+        - ('average follows of all ids', average_follows)
         - ('count of ids that follows no-one', count_follows_no_one)
         """
         
         most_followers_user = None
         most_followers = 0
         total_followers = 0
-        total_users = 0
-        has_no_followers_count = 0
+        follows_someone = 0
+        total_users_count = 0
         
-        for user, follower_count, follows_count in counts:
+        for user, followers_count in counts:
+            if user == 'total_users':
+                total_users_count += followers_count
+                continue
             
-            if follower_count > most_followers:
+            if followers_count > most_followers:
                 most_followers_user = user
-                most_followers = follower_count
+                most_followers = followers_count
+                
+            if followers_count > 0:
+                follows_someone += 1
             
-            total_followers += follower_count
-            total_users += 1
+            total_followers += followers_count
             
-            if follower_count == 0:
-                has_no_followers_count += 1
+        followers_no_one_count = total_users_count - follows_someone
         
-        average_followed = total_followers / total_users
+        average_followers = total_followers / total_users_count
         
         yield ('id with most followers', most_followers_user)
         yield ('most followers of any id', most_followers)
-        yield ('average followers of all ids', average_followed)
-        yield ('count of ids that has no followers', has_no_followers_count)       
+        yield ('average followers of all ids', average_followers)
+        yield ('count of ids that has no followers', followers_no_one_count)       
         
         
     def steps(self):
