@@ -6,75 +6,91 @@ from mrjob.step import MRStep
 class MRJobTwitterFollows(MRJob):
     
     def mapper(self, _, line):
+        """
+        Processes each line of the input file, which consists of 
+        one user and the users they follow.
         
-        # Example line from twitter_x.txt: id_0: id_1, id_2, ... where id_0 follows id_1, id_2, ...
-        # here is an example line from twitter-2010_x.txt: 12926542: 30329952 46174421 17126283 21356017 18898143 18277078 16442847 19896448 24316789 32645182 15364232 51474362 22427119 20746022 49490040 36206550 28903864 19003801 47151158
+        Parameter:
+        - line: A string in the format "user: followed_user1 followed_user2 ..."
+        
+        Return Value:
+        A tuple consisting of the original user and the number of users they follow. (user, count)
+        """
+        
         user, followed_users_str = line.split(':')
         user = user.strip()
         followed_users = followed_users_str.split()
-    
-        # Emit each followed user with the follower as the key
-        for followed_user in followed_users:
-            yield (followed_user, ('follower', 1))
             
-        yield (user, ('follows', len(followed_users)))
-            
-            
-    def combiner(self, user, values):
-        follower_count = 0
-        follows_count = 0
-        for value_type, count in values:
-            if value_type == 'follower':
-                follower_count += count
-            elif value_type == 'follows':
-                follows_count += count
-        yield (user, ('follower', follower_count))
-        yield (user, ('follows', follows_count))
+        yield (user, len(followed_users))
 
 
 
     def reducer(self, user, values):
-        follower_count = 0
-        follows_count = 0
-        for value_type, count in values:
-            if value_type == 'follower':
-                follower_count += count
-            elif value_type == 'follows':
-                follows_count += count
-            
-        yield (None, (user, follower_count, follows_count))
+        """
+        Summarises the counts of followers and follows for each user before collecting the 
+        data on one node to compute statistics.
         
-    def reducer_final(self, _, counts):
+        Parameter:
+        - user: A string representing a user ID.
+        - values: An iterable of counts representing the number of users that the user follows, calculated by the mapper within a node.
+        
+        Return Value:
+        A tuple consisting of a user, and their total follows count.
+        (user, follows_count)
+        """
+        follows_count = 0
+        for count in values:
+            follows_count += count
+                    
+        yield (None, (user, follows_count))
+        
+    def statistics_reducer(self, _, counts):
+        """
+        Uses the output of the first reducer to compute the user with the most follows, how many they follow,
+        the average number of followers, and the count of users that follow no-one.  
+               
+        Parameter:
+        - user: A string representing a user ID.
+        - values: An iterable of tuples, where each tuple consists of a user and their total follows count, calculated by the first reducer.
+        
+        Return Value:
+        A tuple consisting of a key and a value for each of the following statistics:
+        - ('id with most follows', user_id)
+        - ('most follows of any id', follows_count)
+        - ('average follows of all ids', average_follows)
+        - ('count of ids that follows no-one', count_follows_no_one)
+        """
+        
         most_follows_user = None
         most_follows = 0
-        total_followers = 0
+        total_follows = 0
         total_users = 0
         follows_no_one_count = 0
         
-        for user, follower_count, follows_count in counts:
+        for user, follows_count in counts:
             
             if follows_count > most_follows:
                 most_follows_user = user
                 most_follows = follows_count
             
-            total_followers += follower_count
+            total_follows += follows_count
             total_users += 1
             
             if follows_count == 0:
                 follows_no_one_count += 1
         
-        average_followed = total_followers / total_users
+        average_follows = total_follows / total_users
         
         yield ('id with most follows', most_follows_user)
         yield ('most follows of any id', most_follows)
-        yield ('average followers of all ids', average_followed)
+        yield ('average follows of all ids', average_follows)
         yield ('count of ids that follows no-one', follows_no_one_count)       
         
         
     def steps(self):
         return [
-            MRStep(mapper=self.mapper, combiner=self.combiner, reducer=self.reducer),
-            MRStep(reducer=self.reducer_final)
+            MRStep(mapper=self.mapper, reducer=self.reducer),
+            MRStep(reducer=self.statistics_reducer)
         ]
         
 
