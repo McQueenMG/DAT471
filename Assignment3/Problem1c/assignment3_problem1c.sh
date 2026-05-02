@@ -14,6 +14,6 @@ planet_datapath="/data/courses/2026_dat471_dit066/datasets/sc2/planets.csv"
 time apptainer exec \
   --bind "${planet_datapath}:/mnt/planets:ro" \
   "${containerpath}" \
-  python3 "${base_dir}/assignment3_problem1c.py" -r local --num-cores "${SLURM_CPUS_PER_TASK}" "/mnt/planets"
+  python3 "${base_dir}/assignment3_problem1.py" -r local --num-cores "${SLURM_CPUS_PER_TASK}" "/mnt/planets"
 
 cp "assignment3c_${SLURM_JOB_ID}.log" "${base_dir}/output/assignment3c-${datasize}.out"

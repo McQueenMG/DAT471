@@ -16,6 +16,6 @@ output_length=10
 time apptainer exec \
   --bind "${planet_datapath}:/mnt/planets:ro" \
   "${containerpath}" \
-  python3 "${base_dir}/assignment3_problem2b.py" -r local --num-cores "${SLURM_CPUS_PER_TASK}" -k "${output_length}" "/mnt/planets"
+  python3 "${base_dir}/assignment3_problem2.py" -r local --num-cores "${SLURM_CPUS_PER_TASK}" -k "${output_length}" "/mnt/planets"
 
 cp "assignment3prob2b_${SLURM_JOB_ID}.log" "${base_dir}/output/assignment3prob2b-${datasize}.out"

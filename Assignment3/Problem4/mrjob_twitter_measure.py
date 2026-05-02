@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from mrjob_twitter_followers import MRJobTwitterFollowers
+from assignment3_problem4 import MRJobTwitterFollowers
 import time
 import argparse
 
