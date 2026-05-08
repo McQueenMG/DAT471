@@ -1,0 +1,13 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/08 13:46:28 WARN Utils: Your hostname, io, resolves to a loopback address: 127.0.1.1; using 10.1.0.1 instead (on interface eno12399np0)
+26/05/08 13:46:28 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/05/08 13:46:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[Stage 0:>                                                        (0 + 16) / 26][Stage 0:=====================>                                  (10 + 16) / 26][Stage 0:==================================>                     (16 + 10) / 26][Stage 0:=====================================>                   (17 + 9) / 26][Stage 0:===========================================>             (20 + 6) / 26][Stage 0:================================================>        (22 + 4) / 26][Stage 0:====================================================>    (24 + 2) / 26][Stage 1:>                                                        (0 + 16) / 26][Stage 1:========>                                                (4 + 17) / 26][Stage 1:============================>                           (13 + 13) / 26][Stage 1:==================================>                     (16 + 10) / 26][Stage 1:=========================================>               (19 + 7) / 26]                                                                                [Stage 5:>                                                        (0 + 16) / 26][Stage 5:========>                                                (4 + 16) / 26][Stage 5:==================================>                     (16 + 10) / 26][Stage 5:=========================================>               (19 + 7) / 26][Stage 5:===========================================>             (20 + 6) / 26][Stage 5:================================================>        (22 + 4) / 26]                                                                                max follows: 15131310 follows 119880
+users follow on average: 8.36385259999996
+number of user who follow no-one: 3754459
+num workers: 16
+total time: 23.001916885375977
