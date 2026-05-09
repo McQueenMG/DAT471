@@ -6,6 +6,11 @@ from pyspark.sql.types import IntegerType
 import pandas as pd
 import sys
 
+nineteeenth_lower_lim = jdn(dt.strptime('1910-01-01', '%Y-%m-%d'))
+nineteenth_upper_lim = jdn(dt.strptime('1919-12-31', '%Y-%m-%d'))
+twentieth_lower_lim = jdn(dt.strptime('2010-01-01', '%Y-%m-%d'))
+twentieth_upper_lim = jdn(dt.strptime('2019-12-31', '%Y-%m-%d'))
+
 @udf(returnType=IntegerType())
 def jdn(dt):
     """
@@ -36,8 +41,29 @@ def jdn(dt):
 # key is the group key, df is a Pandas dataframe
 # should return a Pandas dataframe
 def lsq(key,df):
-    raise NotImplementedError
+    beta = 0.0
+    
+    y_avg = df['TAVG'].mean()
+    x_avg = df['JDN'].mean()
+    
+    nominator = ((df['JDN'] - x_avg) * (df['TAVG'] - y_avg)).sum()
+    denominator = ((df['JDN'] - x_avg)**2).sum()
+    if denominator != 0:
+        beta = nominator / denominator
 
+    return pd.DataFrame({'STATION': [key[0]], 'NAME': [key[1]], 'BETA': [beta]})
+
+def century_diff(key, df):
+    nineteenth_avg = df.filter((col('JDN') >= nineteeenth_lower_lim) & (col('JDN') <= nineteenth_upper_lim)) \
+        .select('TAVG').agg({'TAVG': 'mean'}).collect()[0][0]
+    twentieth_avg = df.filter((col('JDN') >= twentieth_lower_lim) & (col('JDN') <= twentieth_upper_lim)) \
+        .select('TAVG').agg({'TAVG': 'mean'}).collect()[0][0]
+    tavg_diff = twentieth_avg - nineteenth_avg
+    return pd.DataFrame({'STATION': [key[0]], 'NAME': [key[1]], 'TAVGDIFF': [tavg_diff]})
+
+@udf(returnType=FloatType())
+def temp_avg(tmin, tmax):
+    return (tmin + tmax) / 2
 
 if __name__ == '__main__':
     # do not change the interface
@@ -55,8 +81,42 @@ if __name__ == '__main__':
             .config("spark.driver.memory", "16g") \
             .getOrCreate()
     
+    # example data row, the actual data will have many more rows and may have different values
+    #STATION,DATE,LATITUDE,LONGITUDE,ELEVATION,NAME,PRCP,TMAX,TMIN
+    #ASN00009514,1965-01-01,-33.3,115.6,4.0,"BUNBURY POST OFFICE, AS",0.0,95.4,67.3
+    
     # read the CSV file into a pyspark.sql dataframe and compute the things you need
+    df = spark.read.csv(args.filename, header=True, inferSchema=True)
+    
+    timedf = df.withColumn('JDN', jdn(col('DATE')))
+    
 
+    temp_avg = timedf.withColumn('TAVG', temp_avg(col('TMIN'), col('TMAX'))) \
+        .cache() 
+    
+    
+    lin = temp_avg.select('STATION', 'NAME', 'JDN', 'TAVG').groupBy('STATION', 'NAME') \
+        .applyInPandas(lsq, schema='STATION string, NAME string, BETA float') \
+        .cache()
+        
+    lin.orderBy('BETA', ascending=False).limit(5).show()
+    
+    five_num_summary = lin.approxQuantile('BETA', [0.0, 0.25, 0.5, 0.75, 1.0], 0.01)
+    for i, q in enumerate(['beta_min', 'beta_q1', 'beta_median', 'beta_q3', 'beta_max']):
+        print(f'{q} {five_num_summary[i]} °F/d')
+        
+    pos_fraction = lin.filter(col('BETA') > 0).count() / lin.count()
+    print(f'Fraction of positive coefficients: {pos_fraction}')
+    
+
+    # only select stations that have entries in both decades, otherwise the difference will be meaningless
+    century_diff_df = temp_avg.select('STATION', 'NAME', 'JDN', 'TAVG').groupBy('STATION', 'NAME') \
+        .applyInPandas(century_diff, schema='STATION string, NAME string, TAVGDIFF float') \
+        .cache()      
+    
+    
+    
+    
     raise NotImplementedError
 
     # top 5 slopes are printed here
