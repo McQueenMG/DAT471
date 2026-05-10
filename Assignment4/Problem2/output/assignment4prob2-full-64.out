@@ -1,0 +1,652 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/10 11:24:56 WARN Utils: Your hostname, europa, resolves to a loopback address: 127.0.1.1; using 10.1.0.2 instead (on interface eno12399np0)
+26/05/10 11:24:56 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/05/10 11:24:58 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[Stage 1:>                                                       (0 + 64) / 246][Stage 1:>                                                       (0 + 65) / 246][Stage 1:>                                                       (1 + 64) / 246][Stage 1:>                                                       (4 + 64) / 246][Stage 1:=>                                                      (6 + 64) / 246][Stage 1:==>                                                    (12 + 64) / 246][Stage 1:====>                                                  (18 + 64) / 246][Stage 1:======>                                                (28 + 64) / 246][Stage 1:========>                                              (40 + 64) / 246][Stage 1:==========>                                            (45 + 64) / 246][Stage 1:============>                                          (54 + 64) / 246][Stage 1:============>                                          (57 + 64) / 246][Stage 1:=============>                                         (59 + 64) / 246][Stage 1:=============>                                         (61 + 64) / 246][Stage 1:==============>                                        (63 + 64) / 246][Stage 1:==============>                                        (64 + 64) / 246][Stage 1:==============>                                        (65 + 64) / 246][Stage 1:================>                                      (72 + 64) / 246][Stage 1:=================>                                     (79 + 64) / 246][Stage 1:===================>                                   (88 + 64) / 246][Stage 1:=====================>                                 (94 + 64) / 246][Stage 1:======================>                                (99 + 64) / 246][Stage 1:======================>                               (102 + 64) / 246][Stage 1:=======================>                              (107 + 64) / 246][Stage 1:========================>                             (111 + 64) / 246][Stage 1:=========================>                            (116 + 64) / 246][Stage 1:==========================>                           (119 + 64) / 246][Stage 1:==========================>                           (121 + 64) / 246][Stage 1:===========================>                          (123 + 64) / 246][Stage 1:===========================>                          (125 + 64) / 246][Stage 1:===========================>                          (126 + 64) / 246][Stage 1:============================>                         (128 + 64) / 246][Stage 1:============================>                         (130 + 64) / 246][Stage 1:============================>                         (132 + 64) / 246][Stage 1:==============================>                       (139 + 64) / 246][Stage 1:===============================>                      (144 + 64) / 246][Stage 1:================================>                     (150 + 64) / 246][Stage 1:=================================>                    (153 + 64) / 246][Stage 1:==================================>                   (157 + 64) / 246][Stage 1:====================================>                 (164 + 64) / 246][Stage 1:=====================================>                (172 + 64) / 246][Stage 1:=====================================>                (173 + 64) / 246][Stage 1:======================================>               (177 + 64) / 246][Stage 1:=======================================>              (180 + 64) / 246][Stage 1:=======================================>              (182 + 64) / 246][Stage 1:========================================>             (183 + 63) / 246][Stage 1:========================================>             (184 + 62) / 246][Stage 1:========================================>             (186 + 60) / 246][Stage 1:=========================================>            (187 + 59) / 246][Stage 1:=========================================>            (190 + 56) / 246][Stage 1:=========================================>            (191 + 55) / 246][Stage 1:==========================================>           (192 + 54) / 246][Stage 1:==========================================>           (193 + 53) / 246][Stage 1:==========================================>           (195 + 51) / 246][Stage 1:===========================================>          (197 + 49) / 246][Stage 1:===========================================>          (198 + 48) / 246][Stage 1:============================================>         (202 + 44) / 246][Stage 1:============================================>         (203 + 43) / 246][Stage 1:=============================================>        (206 + 40) / 246][Stage 1:==============================================>       (211 + 35) / 246][Stage 1:===============================================>      (216 + 30) / 246][Stage 1:================================================>     (219 + 27) / 246][Stage 1:================================================>     (222 + 24) / 246][Stage 1:===================================================>  (236 + 10) / 246][Stage 1:======================================================>(244 + 2) / 246][Stage 1:======================================================>(245 + 1) / 246]                                                                                [Stage 2:>                                                       (0 + 64) / 246][Stage 2:>                                                       (1 + 64) / 246][Stage 2:>                                                       (4 + 64) / 246][Stage 2:=>                                                      (5 + 64) / 246][Stage 2:=>                                                      (6 + 64) / 246][Stage 2:==>                                                     (9 + 64) / 246][Stage 2:==>                                                    (11 + 64) / 246][Stage 2:===>                                                   (15 + 64) / 246][Stage 2:====>                                                  (18 + 64) / 246][Stage 2:====>                                                  (20 + 64) / 246][Stage 2:=====>                                                 (24 + 65) / 246][Stage 2:======>                                                (28 + 64) / 246][Stage 2:=======>                                               (32 + 64) / 246][Stage 2:========>                                              (38 + 64) / 246][Stage 2:=========>                                             (41 + 64) / 246][Stage 2:=========>                                             (43 + 64) / 246][Stage 2:=========>                                             (44 + 64) / 246][Stage 2:==========>                                            (46 + 64) / 246][Stage 2:==========>                                            (48 + 64) / 246][Stage 2:===========>                                           (50 + 64) / 246][Stage 2:===========>                                           (51 + 64) / 246][Stage 2:===========>                                           (53 + 64) / 246][Stage 2:============>                                          (54 + 64) / 246][Stage 2:============>                                          (56 + 64) / 246][Stage 2:============>                                          (58 + 64) / 246][Stage 2:=============>                                         (60 + 64) / 246][Stage 2:=============>                                         (61 + 64) / 246][Stage 2:=============>                                         (62 + 64) / 246]26/05/10 11:26:13 WARN MemoryStore: Not enough space to cache rdd_16_48 in memory! (computed 102.6 MiB so far)
+26/05/10 11:26:15 WARN MemoryStore: Not enough space to cache rdd_16_72 in memory! (computed 10.1 MiB so far)
+[Stage 2:==============>                                        (63 + 64) / 246]26/05/10 11:26:15 WARN BlockManager: Persisting block rdd_16_48 to disk instead.
+26/05/10 11:26:16 WARN BlockManager: Persisting block rdd_16_72 to disk instead.
+26/05/10 11:26:17 WARN MemoryStore: Not enough space to cache rdd_16_82 in memory! (computed 10.1 MiB so far)
+26/05/10 11:26:17 WARN BlockManager: Persisting block rdd_16_82 to disk instead.
+26/05/10 11:26:17 WARN MemoryStore: Not enough space to cache rdd_16_79 in memory! (computed 10.1 MiB so far)
+26/05/10 11:26:17 WARN BlockManager: Persisting block rdd_16_79 to disk instead.
+26/05/10 11:26:17 WARN MemoryStore: Not enough space to cache rdd_16_68 in memory! (computed 19.6 MiB so far)
+26/05/10 11:26:17 WARN BlockManager: Persisting block rdd_16_68 to disk instead.
+[Stage 2:==============>                                        (64 + 64) / 246]26/05/10 11:26:28 WARN MemoryStore: Not enough space to cache rdd_16_66 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:28 WARN BlockManager: Persisting block rdd_16_66 to disk instead.
+26/05/10 11:26:29 WARN MemoryStore: Not enough space to cache rdd_16_65 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:29 WARN BlockManager: Persisting block rdd_16_65 to disk instead.
+26/05/10 11:26:29 WARN MemoryStore: Not enough space to cache rdd_16_108 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:29 WARN BlockManager: Persisting block rdd_16_108 to disk instead.
+26/05/10 11:26:29 WARN MemoryStore: Not enough space to cache rdd_16_124 in memory! (computed 38.4 MiB so far)
+26/05/10 11:26:29 WARN BlockManager: Persisting block rdd_16_124 to disk instead.
+[Stage 2:==============>                                        (65 + 64) / 246]26/05/10 11:26:30 WARN MemoryStore: Not enough space to cache rdd_16_68 in memory! (computed 19.6 MiB so far)
+26/05/10 11:26:30 WARN MemoryStore: Not enough space to cache rdd_16_67 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:30 WARN BlockManager: Persisting block rdd_16_67 to disk instead.
+[Stage 2:==============>                                        (66 + 64) / 246]26/05/10 11:26:30 WARN MemoryStore: Not enough space to cache rdd_16_123 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:30 WARN BlockManager: Persisting block rdd_16_123 to disk instead.
+26/05/10 11:26:31 WARN MemoryStore: Not enough space to cache rdd_16_70 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:31 WARN BlockManager: Persisting block rdd_16_70 to disk instead.
+26/05/10 11:26:31 WARN MemoryStore: Not enough space to cache rdd_16_90 in memory! (computed 66.5 MiB so far)
+26/05/10 11:26:31 WARN MemoryStore: Not enough space to cache rdd_16_109 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:32 WARN MemoryStore: Not enough space to cache rdd_16_73 in memory! (computed 66.8 MiB so far)
+26/05/10 11:26:32 WARN BlockManager: Persisting block rdd_16_73 to disk instead.
+26/05/10 11:26:32 WARN MemoryStore: Not enough space to cache rdd_16_91 in memory! (computed 66.7 MiB so far)
+26/05/10 11:26:32 WARN BlockManager: Persisting block rdd_16_91 to disk instead.
+26/05/10 11:26:32 WARN MemoryStore: Not enough space to cache rdd_16_105 in memory! (computed 66.9 MiB so far)
+26/05/10 11:26:32 WARN BlockManager: Persisting block rdd_16_105 to disk instead.
+26/05/10 11:26:32 WARN MemoryStore: Not enough space to cache rdd_16_119 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:32 WARN BlockManager: Persisting block rdd_16_119 to disk instead.
+26/05/10 11:26:32 WARN MemoryStore: Not enough space to cache rdd_16_84 in memory! (computed 66.9 MiB so far)
+26/05/10 11:26:32 WARN MemoryStore: Not enough space to cache rdd_16_80 in memory! (computed 66.9 MiB so far)
+26/05/10 11:26:32 WARN BlockManager: Persisting block rdd_16_80 to disk instead.
+26/05/10 11:26:32 WARN BlockManager: Persisting block rdd_16_84 to disk instead.
+26/05/10 11:26:32 WARN BlockManager: Persisting block rdd_16_109 to disk instead.
+26/05/10 11:26:32 WARN BlockManager: Persisting block rdd_16_90 to disk instead.
+[Stage 2:==============>                                        (67 + 64) / 246]26/05/10 11:26:33 WARN MemoryStore: Not enough space to cache rdd_16_95 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:33 WARN BlockManager: Persisting block rdd_16_95 to disk instead.
+26/05/10 11:26:33 WARN MemoryStore: Not enough space to cache rdd_16_110 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:33 WARN BlockManager: Persisting block rdd_16_110 to disk instead.
+[Stage 2:===============>                                       (68 + 64) / 246]26/05/10 11:26:33 WARN MemoryStore: Not enough space to cache rdd_16_77 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:33 WARN BlockManager: Persisting block rdd_16_77 to disk instead.
+[Stage 2:===============>                                       (70 + 64) / 246][Stage 2:================>                                      (73 + 64) / 246]26/05/10 11:26:34 WARN MemoryStore: Not enough space to cache rdd_16_76 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:34 WARN BlockManager: Persisting block rdd_16_76 to disk instead.
+26/05/10 11:26:34 WARN MemoryStore: Not enough space to cache rdd_16_96 in memory! (computed 66.8 MiB so far)
+26/05/10 11:26:34 WARN BlockManager: Persisting block rdd_16_96 to disk instead.
+26/05/10 11:26:34 WARN MemoryStore: Not enough space to cache rdd_16_65 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:34 WARN MemoryStore: Not enough space to cache rdd_16_93 in memory! (computed 66.5 MiB so far)
+26/05/10 11:26:34 WARN BlockManager: Persisting block rdd_16_93 to disk instead.
+26/05/10 11:26:34 WARN MemoryStore: Not enough space to cache rdd_16_66 in memory! (computed 38.6 MiB so far)
+[Stage 2:================>                                      (75 + 64) / 246]26/05/10 11:26:34 WARN MemoryStore: Not enough space to cache rdd_16_120 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:34 WARN BlockManager: Persisting block rdd_16_120 to disk instead.
+[Stage 2:================>                                      (76 + 64) / 246]26/05/10 11:26:35 WARN MemoryStore: Not enough space to cache rdd_16_110 in memory! (computed 38.5 MiB so far)
+[Stage 2:=================>                                     (78 + 64) / 246]26/05/10 11:26:35 WARN MemoryStore: Not enough space to cache rdd_16_105 in memory! (computed 66.9 MiB so far)
+[Stage 2:==================>                                    (81 + 64) / 246][Stage 2:==================>                                    (84 + 64) / 246]26/05/10 11:26:36 WARN MemoryStore: Not enough space to cache rdd_16_99 in memory! (computed 67.0 MiB so far)
+26/05/10 11:26:36 WARN BlockManager: Persisting block rdd_16_99 to disk instead.
+26/05/10 11:26:36 WARN MemoryStore: Not enough space to cache rdd_16_84 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:36 WARN MemoryStore: Not enough space to cache rdd_16_71 in memory! (computed 104.9 MiB so far)
+26/05/10 11:26:36 WARN BlockManager: Persisting block rdd_16_71 to disk instead.
+[Stage 2:===================>                                   (85 + 64) / 246][Stage 2:===================>                                   (87 + 64) / 246]26/05/10 11:26:37 WARN MemoryStore: Not enough space to cache rdd_16_91 in memory! (computed 66.7 MiB so far)
+[Stage 2:====================>                                  (91 + 64) / 246][Stage 2:=====================>                                 (96 + 64) / 246]26/05/10 11:26:37 WARN MemoryStore: Not enough space to cache rdd_16_85 in memory! (computed 104.9 MiB so far)
+26/05/10 11:26:37 WARN BlockManager: Persisting block rdd_16_85 to disk instead.
+26/05/10 11:26:38 WARN MemoryStore: Not enough space to cache rdd_16_70 in memory! (computed 104.9 MiB so far)
+[Stage 2:=====================>                                 (98 + 64) / 246][Stage 2:======================>                                (99 + 64) / 246][Stage 2:=====================>                                (100 + 64) / 246]26/05/10 11:26:38 WARN MemoryStore: Not enough space to cache rdd_16_102 in memory! (computed 104.9 MiB so far)
+26/05/10 11:26:38 WARN BlockManager: Persisting block rdd_16_102 to disk instead.
+[Stage 2:======================>                               (103 + 64) / 246][Stage 2:=======================>                              (105 + 64) / 246]26/05/10 11:26:39 WARN MemoryStore: Not enough space to cache rdd_16_82 in memory! (computed 19.6 MiB so far)
+26/05/10 11:26:39 WARN MemoryStore: Not enough space to cache rdd_16_95 in memory! (computed 10.1 MiB so far)
+[Stage 2:=======================>                              (107 + 64) / 246]26/05/10 11:26:40 WARN MemoryStore: Not enough space to cache rdd_16_120 in memory! (computed 104.9 MiB so far)
+26/05/10 11:26:40 WARN MemoryStore: Not enough space to cache rdd_16_89 in memory! (computed 113.4 MiB so far)
+26/05/10 11:26:40 WARN MemoryStore: Not enough space to cache rdd_16_77 in memory! (computed 10.1 MiB so far)
+26/05/10 11:26:40 WARN MemoryStore: Not enough space to cache rdd_16_90 in memory! (computed 104.5 MiB so far)
+26/05/10 11:26:40 WARN MemoryStore: Not enough space to cache rdd_16_76 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:41 WARN BlockManager: Persisting block rdd_16_89 to disk instead.
+26/05/10 11:26:41 WARN MemoryStore: Not enough space to cache rdd_16_93 in memory! (computed 38.2 MiB so far)
+[Stage 2:=========================>                            (114 + 64) / 246]26/05/10 11:26:41 WARN MemoryStore: Not enough space to cache rdd_16_123 in memory! (computed 104.7 MiB so far)
+[Stage 2:=========================>                            (118 + 64) / 246]26/05/10 11:26:42 WARN MemoryStore: Not enough space to cache rdd_16_89 in memory! (computed 113.4 MiB so far)
+26/05/10 11:26:42 WARN MemoryStore: Not enough space to cache rdd_16_124 in memory! (computed 38.4 MiB so far)
+[Stage 2:===========================>                          (124 + 64) / 246][Stage 2:===========================>                          (125 + 64) / 246]26/05/10 11:26:43 WARN MemoryStore: Not enough space to cache rdd_16_127 in memory! (computed 66.6 MiB so far)
+26/05/10 11:26:43 WARN BlockManager: Persisting block rdd_16_127 to disk instead.
+[Stage 2:===========================>                          (126 + 64) / 246]26/05/10 11:26:45 WARN MemoryStore: Not enough space to cache rdd_16_129 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:45 WARN BlockManager: Persisting block rdd_16_129 to disk instead.
+26/05/10 11:26:45 WARN MemoryStore: Not enough space to cache rdd_16_99 in memory! (computed 67.0 MiB so far)
+[Stage 2:===========================>                          (127 + 64) / 246]26/05/10 11:26:46 WARN MemoryStore: Not enough space to cache rdd_16_143 in memory! (computed 19.5 MiB so far)
+26/05/10 11:26:46 WARN BlockManager: Persisting block rdd_16_143 to disk instead.
+26/05/10 11:26:46 WARN MemoryStore: Not enough space to cache rdd_16_140 in memory! (computed 19.6 MiB so far)
+26/05/10 11:26:46 WARN BlockManager: Persisting block rdd_16_140 to disk instead.
+26/05/10 11:26:46 WARN MemoryStore: Not enough space to cache rdd_16_138 in memory! (computed 19.6 MiB so far)
+26/05/10 11:26:46 WARN BlockManager: Persisting block rdd_16_138 to disk instead.
+26/05/10 11:26:47 WARN MemoryStore: Not enough space to cache rdd_16_127 in memory! (computed 38.4 MiB so far)
+[Stage 2:============================>                         (128 + 64) / 246][Stage 2:============================>                         (129 + 64) / 246]26/05/10 11:26:56 WARN MemoryStore: Not enough space to cache rdd_16_170 in memory! (computed 38.4 MiB so far)
+26/05/10 11:26:56 WARN BlockManager: Persisting block rdd_16_170 to disk instead.
+26/05/10 11:26:57 WARN MemoryStore: Not enough space to cache rdd_16_172 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:57 WARN BlockManager: Persisting block rdd_16_172 to disk instead.
+26/05/10 11:26:57 WARN MemoryStore: Not enough space to cache rdd_16_145 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:57 WARN BlockManager: Persisting block rdd_16_145 to disk instead.
+26/05/10 11:26:57 WARN MemoryStore: Not enough space to cache rdd_16_169 in memory! (computed 38.5 MiB so far)
+26/05/10 11:26:57 WARN BlockManager: Persisting block rdd_16_169 to disk instead.
+26/05/10 11:26:58 WARN MemoryStore: Not enough space to cache rdd_16_135 in memory! (computed 66.9 MiB so far)
+26/05/10 11:26:58 WARN BlockManager: Persisting block rdd_16_135 to disk instead.
+26/05/10 11:26:58 WARN MemoryStore: Not enough space to cache rdd_16_137 in memory! (computed 65.3 MiB so far)
+26/05/10 11:26:58 WARN BlockManager: Persisting block rdd_16_137 to disk instead.
+26/05/10 11:26:59 WARN MemoryStore: Not enough space to cache rdd_16_129 in memory! (computed 10.0 MiB so far)
+[Stage 2:============================>                         (130 + 64) / 246]26/05/10 11:26:59 WARN MemoryStore: Not enough space to cache rdd_16_130 in memory! (computed 66.0 MiB so far)
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_167 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_167 to disk instead.
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_160 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_160 to disk instead.
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_152 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_141 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_184 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_184 to disk instead.
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_130 to disk instead.
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_149 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_188 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_149 to disk instead.
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_188 to disk instead.
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_141 to disk instead.
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_152 to disk instead.
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_138 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:00 WARN MemoryStore: Not enough space to cache rdd_16_157 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:00 WARN BlockManager: Persisting block rdd_16_157 to disk instead.
+[Stage 2:============================>                         (132 + 64) / 246][Stage 2:=============================>                        (133 + 64) / 246][Stage 2:=============================>                        (134 + 64) / 246]26/05/10 11:27:01 WARN MemoryStore: Not enough space to cache rdd_16_156 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:01 WARN BlockManager: Persisting block rdd_16_156 to disk instead.
+26/05/10 11:27:01 WARN MemoryStore: Not enough space to cache rdd_16_159 in memory! (computed 66.5 MiB so far)
+26/05/10 11:27:01 WARN BlockManager: Persisting block rdd_16_159 to disk instead.
+26/05/10 11:27:01 WARN MemoryStore: Not enough space to cache rdd_16_155 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:01 WARN BlockManager: Persisting block rdd_16_155 to disk instead.
+[Stage 2:=============================>                        (135 + 64) / 246][Stage 2:=============================>                        (136 + 64) / 246][Stage 2:==============================>                       (138 + 64) / 246]26/05/10 11:27:02 WARN MemoryStore: Not enough space to cache rdd_16_174 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:02 WARN BlockManager: Persisting block rdd_16_174 to disk instead.
+26/05/10 11:27:02 WARN MemoryStore: Not enough space to cache rdd_16_168 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:02 WARN BlockManager: Persisting block rdd_16_168 to disk instead.
+26/05/10 11:27:02 WARN MemoryStore: Not enough space to cache rdd_16_171 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:02 WARN BlockManager: Persisting block rdd_16_171 to disk instead.
+26/05/10 11:27:02 WARN MemoryStore: Not enough space to cache rdd_16_143 in memory! (computed 66.9 MiB so far)
+[Stage 2:==============================>                       (141 + 64) / 246]26/05/10 11:27:03 WARN MemoryStore: Not enough space to cache rdd_16_151 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:03 WARN BlockManager: Persisting block rdd_16_151 to disk instead.
+[Stage 2:===============================>                      (142 + 64) / 246]26/05/10 11:27:03 WARN MemoryStore: Not enough space to cache rdd_16_136 in memory! (computed 102.6 MiB so far)
+26/05/10 11:27:03 WARN BlockManager: Persisting block rdd_16_136 to disk instead.
+[Stage 2:===============================>                      (143 + 64) / 246][Stage 2:===============================>                      (144 + 64) / 246][Stage 2:===============================>                      (145 + 64) / 246]26/05/10 11:27:04 WARN MemoryStore: Not enough space to cache rdd_16_136 in memory! (computed 66.2 MiB so far)
+[Stage 2:================================>                     (146 + 64) / 246]26/05/10 11:27:04 WARN MemoryStore: Not enough space to cache rdd_16_152 in memory! (computed 38.5 MiB so far)
+[Stage 2:================================>                     (148 + 64) / 246]26/05/10 11:27:04 WARN MemoryStore: Not enough space to cache rdd_16_141 in memory! (computed 67.0 MiB so far)
+[Stage 2:================================>                     (149 + 64) / 246][Stage 2:================================>                     (150 + 64) / 246][Stage 2:=================================>                    (152 + 64) / 246]26/05/10 11:27:05 WARN MemoryStore: Not enough space to cache rdd_16_177 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:05 WARN BlockManager: Persisting block rdd_16_177 to disk instead.
+26/05/10 11:27:05 WARN MemoryStore: Not enough space to cache rdd_16_186 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:05 WARN BlockManager: Persisting block rdd_16_186 to disk instead.
+26/05/10 11:27:05 WARN MemoryStore: Not enough space to cache rdd_16_179 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:05 WARN BlockManager: Persisting block rdd_16_179 to disk instead.
+26/05/10 11:27:05 WARN MemoryStore: Not enough space to cache rdd_16_159 in memory! (computed 38.5 MiB so far)
+[Stage 2:=================================>                    (153 + 64) / 246]26/05/10 11:27:06 WARN MemoryStore: Not enough space to cache rdd_16_183 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:06 WARN BlockManager: Persisting block rdd_16_183 to disk instead.
+26/05/10 11:27:06 WARN MemoryStore: Not enough space to cache rdd_16_137 in memory! (computed 102.6 MiB so far)
+[Stage 2:==================================>                   (155 + 64) / 246][Stage 2:==================================>                   (156 + 64) / 246]26/05/10 11:27:06 WARN MemoryStore: Not enough space to cache rdd_16_157 in memory! (computed 38.5 MiB so far)
+[Stage 2:==================================>                   (157 + 64) / 246]26/05/10 11:27:07 WARN MemoryStore: Not enough space to cache rdd_16_191 in memory! (computed 66.8 MiB so far)
+26/05/10 11:27:07 WARN MemoryStore: Not enough space to cache rdd_16_161 in memory! (computed 104.9 MiB so far)
+26/05/10 11:27:07 WARN BlockManager: Persisting block rdd_16_191 to disk instead.
+26/05/10 11:27:07 WARN BlockManager: Persisting block rdd_16_161 to disk instead.
+26/05/10 11:27:07 WARN MemoryStore: Not enough space to cache rdd_16_185 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:07 WARN BlockManager: Persisting block rdd_16_185 to disk instead.
+[Stage 2:==================================>                   (158 + 64) / 246]26/05/10 11:27:07 WARN MemoryStore: Not enough space to cache rdd_16_130 in memory! (computed 19.3 MiB so far)
+[Stage 2:==================================>                   (159 + 64) / 246][Stage 2:===================================>                  (161 + 64) / 246][Stage 2:===================================>                  (162 + 64) / 246]26/05/10 11:27:07 WARN MemoryStore: Not enough space to cache rdd_16_145 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:07 WARN MemoryStore: Not enough space to cache rdd_16_168 in memory! (computed 19.5 MiB so far)
+[Stage 2:====================================>                 (164 + 64) / 246][Stage 2:====================================>                 (165 + 64) / 246]26/05/10 11:27:08 WARN MemoryStore: Not enough space to cache rdd_16_160 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:08 WARN MemoryStore: Not enough space to cache rdd_16_163 in memory! (computed 104.8 MiB so far)
+26/05/10 11:27:08 WARN BlockManager: Persisting block rdd_16_163 to disk instead.
+26/05/10 11:27:08 WARN MemoryStore: Not enough space to cache rdd_16_171 in memory! (computed 10.1 MiB so far)
+[Stage 2:====================================>                 (167 + 64) / 246][Stage 2:=====================================>                (169 + 64) / 246][Stage 2:=====================================>                (170 + 64) / 246][Stage 2:=====================================>                (171 + 64) / 246]26/05/10 11:27:09 WARN MemoryStore: Not enough space to cache rdd_16_176 in memory! (computed 104.8 MiB so far)
+26/05/10 11:27:09 WARN BlockManager: Persisting block rdd_16_176 to disk instead.
+26/05/10 11:27:09 WARN MemoryStore: Not enough space to cache rdd_16_163 in memory! (computed 10.1 MiB so far)
+[Stage 2:=====================================>                (172 + 64) / 246]26/05/10 11:27:09 WARN MemoryStore: Not enough space to cache rdd_16_176 in memory! (computed 10.1 MiB so far)
+[Stage 2:======================================>               (175 + 64) / 246]26/05/10 11:27:09 WARN MemoryStore: Not enough space to cache rdd_16_182 in memory! (computed 104.8 MiB so far)
+26/05/10 11:27:09 WARN BlockManager: Persisting block rdd_16_182 to disk instead.
+26/05/10 11:27:09 WARN MemoryStore: Not enough space to cache rdd_16_179 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:09 WARN MemoryStore: Not enough space to cache rdd_16_178 in memory! (computed 104.9 MiB so far)
+26/05/10 11:27:09 WARN BlockManager: Persisting block rdd_16_178 to disk instead.
+26/05/10 11:27:09 WARN MemoryStore: Not enough space to cache rdd_16_193 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:09 WARN BlockManager: Persisting block rdd_16_193 to disk instead.
+[Stage 2:======================================>               (177 + 64) / 246]26/05/10 11:27:09 WARN MemoryStore: Not enough space to cache rdd_16_169 in memory! (computed 104.8 MiB so far)
+[Stage 2:=======================================>              (179 + 64) / 246][Stage 2:=======================================>              (180 + 64) / 246]26/05/10 11:27:10 WARN MemoryStore: Not enough space to cache rdd_16_185 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:10 WARN MemoryStore: Not enough space to cache rdd_16_191 in memory! (computed 66.8 MiB so far)
+[Stage 2:========================================>             (183 + 63) / 246]26/05/10 11:27:11 WARN MemoryStore: Not enough space to cache rdd_16_197 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:11 WARN BlockManager: Persisting block rdd_16_197 to disk instead.
+26/05/10 11:27:11 WARN MemoryStore: Not enough space to cache rdd_16_194 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:11 WARN BlockManager: Persisting block rdd_16_194 to disk instead.
+26/05/10 11:27:11 WARN MemoryStore: Not enough space to cache rdd_16_192 in memory! (computed 38.6 MiB so far)
+26/05/10 11:27:11 WARN BlockManager: Persisting block rdd_16_192 to disk instead.
+26/05/10 11:27:11 WARN MemoryStore: Not enough space to cache rdd_16_183 in memory! (computed 38.5 MiB so far)
+[Stage 2:========================================>             (186 + 60) / 246]26/05/10 11:27:11 WARN MemoryStore: Not enough space to cache rdd_16_167 in memory! (computed 66.9 MiB so far)
+[Stage 2:=========================================>            (188 + 58) / 246]26/05/10 11:27:11 WARN MemoryStore: Not enough space to cache rdd_16_211 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:11 WARN BlockManager: Persisting block rdd_16_211 to disk instead.
+26/05/10 11:27:11 WARN MemoryStore: Not enough space to cache rdd_16_170 in memory! (computed 66.9 MiB so far)
+[Stage 2:=========================================>            (189 + 57) / 246]26/05/10 11:27:12 WARN MemoryStore: Not enough space to cache rdd_16_184 in memory! (computed 10.1 MiB so far)
+[Stage 2:=========================================>            (190 + 56) / 246]26/05/10 11:27:12 WARN MemoryStore: Not enough space to cache rdd_16_202 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:12 WARN BlockManager: Persisting block rdd_16_202 to disk instead.
+26/05/10 11:27:12 WARN MemoryStore: Not enough space to cache rdd_16_210 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:12 WARN BlockManager: Persisting block rdd_16_210 to disk instead.
+[Stage 2:=========================================>            (191 + 55) / 246]26/05/10 11:27:13 WARN MemoryStore: Not enough space to cache rdd_16_213 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:13 WARN BlockManager: Persisting block rdd_16_213 to disk instead.
+26/05/10 11:27:13 WARN MemoryStore: Not enough space to cache rdd_16_217 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:13 WARN BlockManager: Persisting block rdd_16_217 to disk instead.
+26/05/10 11:27:13 WARN MemoryStore: Not enough space to cache rdd_16_214 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:13 WARN BlockManager: Persisting block rdd_16_214 to disk instead.
+[Stage 2:==========================================>           (192 + 54) / 246][Stage 2:==========================================>           (193 + 53) / 246]26/05/10 11:27:17 WARN MemoryStore: Not enough space to cache rdd_16_205 in memory! (computed 38.4 MiB so far)
+26/05/10 11:27:17 WARN BlockManager: Persisting block rdd_16_205 to disk instead.
+26/05/10 11:27:17 WARN MemoryStore: Not enough space to cache rdd_16_226 in memory! (computed 19.4 MiB so far)
+26/05/10 11:27:17 WARN BlockManager: Persisting block rdd_16_226 to disk instead.
+26/05/10 11:27:17 WARN MemoryStore: Not enough space to cache rdd_16_192 in memory! (computed 38.6 MiB so far)
+[Stage 2:==========================================>           (194 + 52) / 246]26/05/10 11:27:18 WARN MemoryStore: Not enough space to cache rdd_16_204 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:18 WARN BlockManager: Persisting block rdd_16_204 to disk instead.
+26/05/10 11:27:19 WARN MemoryStore: Not enough space to cache rdd_16_208 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:19 WARN BlockManager: Persisting block rdd_16_208 to disk instead.
+26/05/10 11:27:21 WARN MemoryStore: Not enough space to cache rdd_16_200 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:21 WARN BlockManager: Persisting block rdd_16_200 to disk instead.
+26/05/10 11:27:21 WARN MemoryStore: Not enough space to cache rdd_16_222 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:21 WARN BlockManager: Persisting block rdd_16_222 to disk instead.
+26/05/10 11:27:21 WARN MemoryStore: Not enough space to cache rdd_16_201 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:21 WARN BlockManager: Persisting block rdd_16_201 to disk instead.
+26/05/10 11:27:22 WARN MemoryStore: Not enough space to cache rdd_16_199 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:22 WARN BlockManager: Persisting block rdd_16_199 to disk instead.
+26/05/10 11:27:22 WARN MemoryStore: Not enough space to cache rdd_16_235 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:22 WARN BlockManager: Persisting block rdd_16_235 to disk instead.
+26/05/10 11:27:22 WARN MemoryStore: Not enough space to cache rdd_16_197 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:22 WARN MemoryStore: Not enough space to cache rdd_16_241 in memory! (computed 38.4 MiB so far)
+26/05/10 11:27:22 WARN BlockManager: Persisting block rdd_16_241 to disk instead.
+[Stage 2:==========================================>           (195 + 51) / 246]26/05/10 11:27:23 WARN MemoryStore: Not enough space to cache rdd_16_238 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:23 WARN BlockManager: Persisting block rdd_16_238 to disk instead.
+26/05/10 11:27:23 WARN MemoryStore: Not enough space to cache rdd_16_228 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:23 WARN BlockManager: Persisting block rdd_16_228 to disk instead.
+26/05/10 11:27:23 WARN MemoryStore: Not enough space to cache rdd_16_201 in memory! (computed 10.1 MiB so far)
+[Stage 2:===========================================>          (198 + 48) / 246]26/05/10 11:27:23 WARN MemoryStore: Not enough space to cache rdd_16_202 in memory! (computed 38.4 MiB so far)
+[Stage 2:===========================================>          (200 + 46) / 246]26/05/10 11:27:24 WARN MemoryStore: Not enough space to cache rdd_16_194 in memory! (computed 67.0 MiB so far)
+[Stage 2:============================================>         (201 + 45) / 246]26/05/10 11:27:24 WARN MemoryStore: Not enough space to cache rdd_16_199 in memory! (computed 10.1 MiB so far)
+[Stage 2:============================================>         (203 + 43) / 246][Stage 2:=============================================>        (205 + 41) / 246]26/05/10 11:27:25 WARN MemoryStore: Not enough space to cache rdd_16_221 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:25 WARN BlockManager: Persisting block rdd_16_221 to disk instead.
+26/05/10 11:27:25 WARN MemoryStore: Not enough space to cache rdd_16_210 in memory! (computed 66.9 MiB so far)
+[Stage 2:=============================================>        (206 + 40) / 246][Stage 2:=============================================>        (208 + 38) / 246]26/05/10 11:27:27 WARN MemoryStore: Not enough space to cache rdd_16_211 in memory! (computed 38.5 MiB so far)
+[Stage 2:=============================================>        (209 + 37) / 246]26/05/10 11:27:27 WARN MemoryStore: Not enough space to cache rdd_16_217 in memory! (computed 38.5 MiB so far)
+[Stage 2:==============================================>       (212 + 34) / 246]26/05/10 11:27:27 WARN MemoryStore: Not enough space to cache rdd_16_234 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:27 WARN BlockManager: Persisting block rdd_16_234 to disk instead.
+26/05/10 11:27:27 WARN MemoryStore: Not enough space to cache rdd_16_214 in memory! (computed 19.6 MiB so far)
+[Stage 2:==============================================>       (213 + 33) / 246]26/05/10 11:27:27 WARN MemoryStore: Not enough space to cache rdd_16_204 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:27 WARN MemoryStore: Not enough space to cache rdd_16_208 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:27 WARN MemoryStore: Not enough space to cache rdd_16_212 in memory! (computed 104.9 MiB so far)
+26/05/10 11:27:27 WARN BlockManager: Persisting block rdd_16_212 to disk instead.
+[Stage 2:===============================================>      (215 + 31) / 246][Stage 2:===============================================>      (216 + 30) / 246][Stage 2:===============================================>      (217 + 29) / 246][Stage 2:================================================>     (219 + 27) / 246][Stage 2:================================================>     (223 + 23) / 246][Stage 2:=================================================>    (226 + 20) / 246][Stage 2:==================================================>   (232 + 14) / 246][Stage 2:====================================================>  (237 + 9) / 246][Stage 2:=====================================================> (241 + 5) / 246][Stage 2:======================================================>(245 + 1) / 246]26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_49 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_17 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_60 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_41 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_48 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_42 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_8 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_5 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_30 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_20 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_47 in memory! (computed 19.4 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_58 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_10 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_39 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_4 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_54 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_12 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_13 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_34 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_32 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_16 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_45 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_56 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_57 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_18 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_26 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_51 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_63 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_7 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_1 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_33 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_31 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_14 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_28 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_3 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_38 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_21 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_59 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_9 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_50 in memory! (computed 18.7 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_46 in memory! (computed 19.3 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_36 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_62 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_40 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_2 in memory! (computed 9.8 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_25 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_15 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_37 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_35 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_27 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_19 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_11 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_6 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_29 in memory! (computed 19.3 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_23 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_53 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_44 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_0 in memory! (computed 9.9 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_24 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_22 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_43 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_55 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_52 in memory! (computed 38.6 MiB so far)
+26/05/10 11:27:30 WARN MemoryStore: Not enough space to cache rdd_16_61 in memory! (computed 38.5 MiB so far)
+[Stage 3:>                                                       (0 + 64) / 246][Stage 3:=>                                                      (5 + 64) / 246]26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_69 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_68 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_64 in memory! (computed 104.9 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_66 in memory! (computed 105.0 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_65 in memory! (computed 104.9 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_70 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_67 in memory! (computed 105.0 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_71 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_72 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_73 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_74 in memory! (computed 10.1 MiB so far)
+[Stage 3:==>                                                    (11 + 64) / 246]26/05/10 11:27:31 WARN MemoryStore: Not enough space to cache rdd_16_75 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_76 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_78 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_77 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_79 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_80 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_81 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_83 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_83 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_82 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_84 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_85 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_85 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_86 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_86 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_88 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_88 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_87 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_87 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_89 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_89 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_90 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_90 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_95 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_95 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_91 in memory! (computed 9.9 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_92 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_100 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_100 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_104 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_93 in memory! (computed 9.9 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_104 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_105 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_102 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_105 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_103 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_102 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_103 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_106 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_106 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_108 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_109 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_108 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_107 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_109 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_97 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_107 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_111 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_111 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_101 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_99 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_114 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_112 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_114 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_112 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_115 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_115 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_116 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_117 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_116 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_117 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_110 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_118 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_113 in memory! (computed 10.0 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_118 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_120 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_120 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_121 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_123 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_123 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_124 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_124 in memory! (computed 504.0 B so far)
+26/05/10 11:27:32 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_125 in memory.
+26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_125 in memory! (computed 504.0 B so far)
+[Stage 3:=============>                                         (61 + 67) / 246]26/05/10 11:27:32 WARN MemoryStore: Not enough space to cache rdd_16_127 in memory! (computed 10.1 MiB so far)
+[Stage 3:==============>                                        (64 + 64) / 246][Stage 3:===============>                                       (69 + 64) / 246][Stage 3:===============>                                       (71 + 64) / 246]26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_141 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_143 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_136 in memory! (computed 66.2 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_137 in memory! (computed 65.3 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_138 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_145 in memory! (computed 19.6 MiB so far)
+[Stage 3:===================>                                   (88 + 64) / 246]26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_152 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_157 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_160 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_163 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_163 in memory! (computed 504.0 B so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_159 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_167 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_167 in memory! (computed 504.0 B so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_168 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_168 in memory! (computed 504.0 B so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_171 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_171 in memory! (computed 504.0 B so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_170 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_170 in memory! (computed 504.0 B so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_179 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_179 in memory! (computed 504.0 B so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_176 in memory! (computed 19.5 MiB so far)
+[Stage 3:==========================>                           (122 + 64) / 246]26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_169 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_184 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_185 in memory! (computed 10.1 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_183 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_191 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_191 in memory! (computed 504.0 B so far)
+[Stage 3:============================>                         (129 + 64) / 246]26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_197 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_199 in memory! (computed 19.6 MiB so far)
+[Stage 3:==============================>                       (137 + 64) / 246]26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_201 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_201 in memory! (computed 504.0 B so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_202 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_202 in memory! (computed 504.0 B so far)
+26/05/10 11:27:33 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_204 in memory.
+26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_204 in memory! (computed 504.0 B so far)
+[Stage 3:===============================>                      (145 + 64) / 246]26/05/10 11:27:33 WARN MemoryStore: Not enough space to cache rdd_16_208 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:34 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_210 in memory.
+26/05/10 11:27:34 WARN MemoryStore: Not enough space to cache rdd_16_210 in memory! (computed 504.0 B so far)
+26/05/10 11:27:34 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_211 in memory.
+26/05/10 11:27:34 WARN MemoryStore: Not enough space to cache rdd_16_211 in memory! (computed 504.0 B so far)
+26/05/10 11:27:34 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_214 in memory.
+26/05/10 11:27:34 WARN MemoryStore: Not enough space to cache rdd_16_214 in memory! (computed 504.0 B so far)
+26/05/10 11:27:34 WARN MemoryStore: Not enough space to cache rdd_16_217 in memory! (computed 38.5 MiB so far)
+[Stage 3:===================================>                  (162 + 64) / 246][Stage 3:=======================================>              (181 + 64) / 246][Stage 3:============================================>         (201 + 45) / 246][Stage 3:==============================================>       (214 + 32) / 246][Stage 3:======================================================>(244 + 2) / 246][Stage 5:>                                                       (0 + 64) / 200][164.954s][warning][gc,alloc] Executor task launch worker for task 2.0 in stage 5.0 (TID 741): Retried waiting for GCLocker too often allocating 2097154 words
+26/05/10 11:27:38 WARN TaskMemoryManager: Failed to allocate a page (16777216 bytes), try again.
+[Stage 5:>                                                       (1 + 64) / 200][Stage 5:>                                                       (3 + 64) / 200][Stage 5:===>                                                   (11 + 64) / 200][Stage 5:======>                                                (22 + 64) / 200][Stage 5:==========>                                            (39 + 64) / 200][Stage 5:============>                                          (46 + 64) / 200][Stage 5:===============>                                       (57 + 64) / 200][Stage 5:================>                                      (59 + 64) / 200][Stage 5:=================>                                     (63 + 64) / 200][Stage 5:=================>                                     (64 + 64) / 200][Stage 5:==================>                                    (66 + 64) / 200][Stage 5:==================>                                    (67 + 64) / 200][Stage 5:==================>                                    (68 + 64) / 200][Stage 5:===================>                                   (70 + 64) / 200][Stage 5:====================>                                  (73 + 64) / 200][Stage 5:=====================>                                 (78 + 64) / 200][Stage 5:======================>                                (83 + 64) / 200][Stage 5:=========================>                             (92 + 64) / 200][Stage 5:===========================>                           (99 + 64) / 200][Stage 5:============================>                         (106 + 64) / 200][Stage 5:=============================>                        (110 + 64) / 200][Stage 5:===============================>                      (118 + 64) / 200][Stage 5:================================>                     (122 + 64) / 200][Stage 5:=================================>                    (125 + 64) / 200][Stage 5:==================================>                   (127 + 64) / 200][Stage 5:==================================>                   (129 + 64) / 200][Stage 5:===================================>                  (131 + 64) / 200][Stage 5:====================================>                 (134 + 64) / 200][Stage 5:====================================>                 (136 + 64) / 200][Stage 5:====================================>                 (137 + 63) / 200][Stage 5:=====================================>                (139 + 61) / 200][Stage 5:======================================>               (142 + 58) / 200][Stage 5:=======================================>              (147 + 53) / 200][Stage 5:=========================================>            (153 + 47) / 200][Stage 5:==========================================>           (156 + 44) / 200][Stage 5:============================================>         (165 + 35) / 200][Stage 5:==============================================>       (174 + 26) / 200][Stage 5:=================================================>    (183 + 17) / 200][Stage 5:====================================================>  (192 + 8) / 200][Stage 5:======================================================>(199 + 1) / 200]                                                                                26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_10 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_62 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_39 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_18 in memory! (computed 66.8 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_34 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_38 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_19 in memory! (computed 66.8 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_9 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_57 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_41 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_58 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_52 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_0 in memory! (computed 66.7 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_16 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_21 in memory! (computed 104.7 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_2 in memory! (computed 66.7 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_26 in memory! (computed 66.7 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_47 in memory! (computed 66.3 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_61 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_23 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_60 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_37 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_42 in memory! (computed 66.5 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_27 in memory! (computed 66.8 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_35 in memory! (computed 104.7 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_11 in memory! (computed 103.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_15 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_22 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_3 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_44 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_63 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_4 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_45 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_56 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_59 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_46 in memory! (computed 65.8 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_49 in memory! (computed 65.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_8 in memory! (computed 66.8 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_53 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_20 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_50 in memory! (computed 75.6 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_24 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_25 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_32 in memory! (computed 66.8 MiB so far)
+26/05/10 11:27:56 WARN MemoryStore: Not enough space to cache rdd_16_12 in memory! (computed 66.9 MiB so far)
+[Stage 23:>                                                      (0 + 64) / 246]26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_1 in memory! (computed 66.1 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_14 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_36 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_55 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_33 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_43 in memory! (computed 104.3 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_48 in memory! (computed 102.6 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_31 in memory! (computed 104.7 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_51 in memory! (computed 105.0 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_54 in memory! (computed 105.0 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_40 in memory! (computed 104.8 MiB so far)
+26/05/10 11:27:57 WARN MemoryStore: Not enough space to cache rdd_16_29 in memory! (computed 104.0 MiB so far)
+[Stage 23:>                                                      (3 + 64) / 246][Stage 23:==>                                                   (10 + 64) / 246][Stage 23:=====>                                                (26 + 64) / 246][Stage 23:============>                                         (57 + 64) / 246]26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_125 in memory! (computed 10.0 MiB so far)
+[Stage 23:=============>                                        (62 + 64) / 246]26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_86 in memory! (computed 104.8 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_109 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_108 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_104 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_103 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_106 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_102 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_105 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_110 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_96 in memory! (computed 66.8 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_98 in memory! (computed 66.4 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_95 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_92 in memory! (computed 66.7 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_89 in memory! (computed 75.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_99 in memory! (computed 67.0 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_97 in memory! (computed 66.8 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_100 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_74 in memory! (computed 104.8 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_94 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_76 in memory! (computed 104.9 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_115 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_114 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_91 in memory! (computed 66.7 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_120 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_112 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_119 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_117 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_90 in memory! (computed 66.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_87 in memory! (computed 66.7 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_116 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_118 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_93 in memory! (computed 66.5 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_88 in memory! (computed 66.9 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_121 in memory! (computed 19.6 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_113 in memory! (computed 38.4 MiB so far)
+26/05/10 11:27:58 WARN MemoryStore: Not enough space to cache rdd_16_124 in memory! (computed 19.5 MiB so far)
+[Stage 23:==============>                                       (64 + 64) / 246]26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_129 in memory! (computed 19.5 MiB so far)
+26/05/10 11:27:59 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_136 in memory.
+26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_136 in memory! (computed 504.0 B so far)
+26/05/10 11:27:59 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_137 in memory.
+26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_137 in memory! (computed 504.0 B so far)
+26/05/10 11:27:59 WARN MemoryStore: Failed to reserve initial memory threshold of 1024.0 KiB for computing block rdd_16_138 in memory.
+26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_138 in memory! (computed 504.0 B so far)
+26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_135 in memory! (computed 10.1 MiB so far)
+[Stage 23:================>                                     (77 + 64) / 246][Stage 23:=================>                                    (79 + 65) / 246][Stage 23:==================>                                   (83 + 64) / 246]26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_132 in memory! (computed 104.7 MiB so far)
+[Stage 23:====================>                                 (94 + 64) / 246]26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_153 in memory! (computed 38.5 MiB so far)
+26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_143 in memory! (computed 104.8 MiB so far)
+26/05/10 11:27:59 WARN MemoryStore: Not enough space to cache rdd_16_154 in memory! (computed 38.5 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_148 in memory! (computed 66.9 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_155 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_159 in memory! (computed 19.5 MiB so far)
+[Stage 23:=====================>                               (100 + 64) / 246]26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_145 in memory! (computed 104.8 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_157 in memory! (computed 38.5 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_151 in memory! (computed 66.9 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_152 in memory! (computed 66.9 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_165 in memory! (computed 19.6 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_168 in memory! (computed 19.5 MiB so far)
+[Stage 23:========================>                            (112 + 64) / 246]26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_162 in memory! (computed 104.9 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_170 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_193 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_169 in memory! (computed 19.6 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_172 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_198 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_167 in memory! (computed 38.5 MiB so far)
+26/05/10 11:28:00 WARN MemoryStore: Not enough space to cache rdd_16_177 in memory! (computed 10.1 MiB so far)
+[Stage 23:===============================>                     (146 + 64) / 246]26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_206 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_175 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_176 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_173 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_197 in memory! (computed 19.6 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_200 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_192 in memory! (computed 19.6 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_191 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_205 in memory! (computed 10.0 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_183 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_195 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_187 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_196 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_204 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_190 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_194 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_182 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_181 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_199 in memory! (computed 10.1 MiB so far)
+[Stage 23:================================>                    (149 + 64) / 246]26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_185 in memory! (computed 38.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_203 in memory! (computed 38.0 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_207 in memory! (computed 38.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_202 in memory! (computed 38.4 MiB so far)
+[Stage 23:================================>                    (153 + 64) / 246][Stage 23:=================================>                   (155 + 64) / 246]26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_201 in memory! (computed 38.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_171 in memory! (computed 104.8 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_210 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_212 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_178 in memory! (computed 66.9 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_179 in memory! (computed 66.9 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_188 in memory! (computed 66.9 MiB so far)
+26/05/10 11:28:01 WARN MemoryStore: Not enough space to cache rdd_16_209 in memory! (computed 19.6 MiB so far)
+[Stage 23:==================================>                  (158 + 64) / 246]26/05/10 11:28:02 WARN MemoryStore: Not enough space to cache rdd_16_213 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:02 WARN MemoryStore: Not enough space to cache rdd_16_208 in memory! (computed 38.5 MiB so far)
+26/05/10 11:28:02 WARN MemoryStore: Not enough space to cache rdd_16_216 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:02 WARN MemoryStore: Not enough space to cache rdd_16_211 in memory! (computed 19.5 MiB so far)
+26/05/10 11:28:02 WARN MemoryStore: Not enough space to cache rdd_16_218 in memory! (computed 10.0 MiB so far)
+26/05/10 11:28:02 WARN MemoryStore: Not enough space to cache rdd_16_215 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:02 WARN MemoryStore: Not enough space to cache rdd_16_222 in memory! (computed 10.1 MiB so far)
+26/05/10 11:28:02 WARN MemoryStore: Not enough space to cache rdd_16_214 in memory! (computed 38.5 MiB so far)
+[Stage 23:=====================================>               (176 + 64) / 246][Stage 23:===========================================>         (202 + 44) / 246][Stage 23:===============================================>     (222 + 24) / 246][Stage 23:==================================================>  (235 + 11) / 246][Stage 23:=====================================================>(244 + 2) / 246]                                                                                Top 5 coefficients:
+USC00364611 at KITTANNING LOCK 7, PA US BETA=1.955e+01 °F/d
+USC00241993 at COOKE, MT US BETA=1.510e+01 °F/d
+USC00211585 at CLEARWATER, MN US BETA=7.900e+00 °F/d
+USC00114363 at INA, IL US BETA=6.200e+00 °F/d
+USC00205667 at MOUNT PLEASANT, MI US BETA=5.935e+00 °F/d
+Fraction of positive coefficients:
+0.6714930227678103
+Five-number summary of BETA values:
+beta_min -5.464e+01
+beta_q1 -5.691e-05
+beta_median 7.534e-05
+beta_q3 2.201e-04
+beta_max 1.955e+01
+Top 5 differences:
+RSM00024944 at OLEKMINSK, RS difference 39.6 °C)
+RSM00024641 at VILJUJSK, RS difference 38.0 °C)
+RSM00024266 at VERHOJANSK, RS difference 36.1 °C)
+RSM00021921 at KJUSJUR, RS difference 33.6 °C)
+KZ000035078 at ATBASAR, KZ difference 18.6 °C)
+Fraction of positive differences:
+0.7495274102079396
+Five-number summary of decade average difference values:
+tdiff_min -31.7 °C
+tdiff_q1 -0.0 °C
+tdiff_median 0.8 °C
+tdiff_q3 1.6 °C
+tdiff_max 39.6 °C
+num workers: 64
+read time: 32.6 s
+temp avg time: 0.2 s
+regression time: 137.2 s
+century diff time: 8.4 s
+other time: 0.8 s
+total time: 179.2 s
+INFO:    Terminating squashfuse_ll after timeout
+INFO:    Timeouts can be caused by a running background process

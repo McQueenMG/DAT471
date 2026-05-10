@@ -1,18 +1,14 @@
 import time
+from datetime import datetime as dt
 import argparse
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import udf, col
+from pyspark.sql.functions import udf, col, when, sum as _sum, avg
+from pyspark.sql.types import FloatType
 from pyspark.sql.types import IntegerType
 import pandas as pd
 import sys
 
-nineteeenth_lower_lim = jdn(dt.strptime('1910-01-01', '%Y-%m-%d'))
-nineteenth_upper_lim = jdn(dt.strptime('1919-12-31', '%Y-%m-%d'))
-twentieth_lower_lim = jdn(dt.strptime('2010-01-01', '%Y-%m-%d'))
-twentieth_upper_lim = jdn(dt.strptime('2019-12-31', '%Y-%m-%d'))
-
-@udf(returnType=IntegerType())
-def jdn(dt):
+def jdn_raw(dt):
     """
     Computes the Julian date number for a given date.
     Parameters:
@@ -35,6 +31,7 @@ def jdn(dt):
     jd = c+d+e+f-1524
     return jd
 
+
     
 # you probably want to use a function with this signature for computing the
 # simple linear regression with least squares using applyInPandas()
@@ -53,14 +50,6 @@ def lsq(key,df):
 
     return pd.DataFrame({'STATION': [key[0]], 'NAME': [key[1]], 'BETA': [beta]})
 
-def century_diff(key, df):
-    nineteenth_avg = df.filter((col('JDN') >= nineteeenth_lower_lim) & (col('JDN') <= nineteenth_upper_lim)) \
-        .select('TAVG').agg({'TAVG': 'mean'}).collect()[0][0]
-    twentieth_avg = df.filter((col('JDN') >= twentieth_lower_lim) & (col('JDN') <= twentieth_upper_lim)) \
-        .select('TAVG').agg({'TAVG': 'mean'}).collect()[0][0]
-    tavg_diff = twentieth_avg - nineteenth_avg
-    return pd.DataFrame({'STATION': [key[0]], 'NAME': [key[1]], 'TAVGDIFF': [tavg_diff]})
-
 @udf(returnType=FloatType())
 def temp_avg(tmin, tmax):
     return (tmin + tmax) / 2
@@ -73,6 +62,7 @@ if __name__ == '__main__':
                             help = 'Number of workers')
     parser.add_argument('filename',type=str,help='Input filename')
     args = parser.parse_args()
+    
 
     # this bit is important: by default, Spark only allocates 1 GiB of memory 
     # which will likely cause an out of memory exception with the full data
@@ -81,63 +71,69 @@ if __name__ == '__main__':
             .config("spark.driver.memory", "16g") \
             .getOrCreate()
     
+    jdn = udf(jdn_raw, returnType=IntegerType())
     # example data row, the actual data will have many more rows and may have different values
     #STATION,DATE,LATITUDE,LONGITUDE,ELEVATION,NAME,PRCP,TMAX,TMIN
     #ASN00009514,1965-01-01,-33.3,115.6,4.0,"BUNBURY POST OFFICE, AS",0.0,95.4,67.3
     
     # read the CSV file into a pyspark.sql dataframe and compute the things you need
+    start_time = time.time()
     df = spark.read.csv(args.filename, header=True, inferSchema=True)
+    read_time = time.time() - start_time
     
+    temp_avg_time_start = time.time()
     timedf = df.withColumn('JDN', jdn(col('DATE')))
-    
-
     temp_avg = timedf.withColumn('TAVG', temp_avg(col('TMIN'), col('TMAX'))) \
+        .withColumn('TAVG_C', (col('TAVG') - 32.0) * 5.0/9.0) \
         .cache() 
+    temp_avg_time = time.time() - temp_avg_time_start
     
-    
+    reg_time_start = time.time()
     lin = temp_avg.select('STATION', 'NAME', 'JDN', 'TAVG').groupBy('STATION', 'NAME') \
         .applyInPandas(lsq, schema='STATION string, NAME string, BETA float') \
         .cache()
-        
-    lin.orderBy('BETA', ascending=False).limit(5).show()
-    
     five_num_summary = lin.approxQuantile('BETA', [0.0, 0.25, 0.5, 0.75, 1.0], 0.01)
-    for i, q in enumerate(['beta_min', 'beta_q1', 'beta_median', 'beta_q3', 'beta_max']):
-        print(f'{q} {five_num_summary[i]} °F/d')
+    reg_time = time.time() - reg_time_start
         
-    pos_fraction = lin.filter(col('BETA') > 0).count() / lin.count()
-    print(f'Fraction of positive coefficients: {pos_fraction}')
-    
-
-    # only select stations that have entries in both decades, otherwise the difference will be meaningless
-    century_diff_df = temp_avg.select('STATION', 'NAME', 'JDN', 'TAVG').groupBy('STATION', 'NAME') \
-        .applyInPandas(century_diff, schema='STATION string, NAME string, TAVGDIFF float') \
-        .cache()      
-    
-    
-    
-    
-    raise NotImplementedError
-
     # top 5 slopes are printed here
     # replace None with your dataframe, list, or an appropriate expression
     # replace STATIONCODE, STATIONNAME, and BETA with appropriate expressions
     print('Top 5 coefficients:')
-    for row in None:
-        print(f'{STATIONCODE} at {STATIONNAME} BETA={BETA:0.3e} °F/d')
-
+    for row in lin.orderBy('BETA', ascending=False).limit(5).collect():
+        print(f'{row.STATION} at {row.NAME} BETA={row.BETA:0.3e} °F/d')
+    
+        
+    pos_fraction = lin.filter(col('BETA') > 0).count() / lin.count()
     # replace None with an appropriate expression
     print('Fraction of positive coefficients:')
-    print(None)
-
+    print(pos_fraction)
+         
     # Five-number summary of slopes, replace with appropriate expressions
     print('Five-number summary of BETA values:')
-    beta_min, beta_q1, beta_median, beta_q3, beta_max = 5*[0.0]
+    beta_min, beta_q1, beta_median, beta_q3, beta_max = five_num_summary
     print(f'beta_min {beta_min:0.3e}')
     print(f'beta_q1 {beta_q1:0.3e}')
     print(f'beta_median {beta_median:0.3e}')
     print(f'beta_q3 {beta_q3:0.3e}')
     print(f'beta_max {beta_max:0.3e}')
+    
+    nineteenth_lower = jdn_raw(dt.strptime('1910-01-01', '%Y-%m-%d'))
+    nineteenth_upper = jdn_raw(dt.strptime('1919-12-31', '%Y-%m-%d'))
+    twentieth_lower = jdn_raw(dt.strptime('2010-01-01', '%Y-%m-%d'))
+    twentieth_upper = jdn_raw(dt.strptime('2019-12-31', '%Y-%m-%d'))
+    century_diff_time_start = time.time()
+    decade_avgs = temp_avg.groupBy('STATION','NAME').agg(
+        avg(when((col('JDN')>=nineteenth_lower)&(col('JDN')<=nineteenth_upper), col('TAVG_C'))).alias('avg_1910s'),
+        avg(when((col('JDN')>=twentieth_lower)&(col('JDN')<=twentieth_upper), col('TAVG_C'))).alias('avg_2010s'),
+    )
+    
+    only_relevant = decade_avgs.filter(col('avg_1910s').isNotNull() & col('avg_2010s').isNotNull())
+    century_diff_df = only_relevant.withColumn('TAVGDIFF', col('avg_2010s') - col('avg_1910s')).cache()
+    no_suitable_stations = century_diff_df.count() == 0
+    cen_pos_fraction = century_diff_df.filter(col('TAVGDIFF') > 0).count() / century_diff_df.count() if not no_suitable_stations else 0
+    cen_five_num_summary = century_diff_df.approxQuantile('TAVGDIFF', [0.0, 0.25, 0.5, 0.75, 1.0], 0.01) if not no_suitable_stations else [0.0]*5
+    century_diff_time = time.time() - century_diff_time_start
+
 
     # Here you will need to implement computing the decadewise differences 
     # between the average temperatures of 1910s and 2010s
@@ -151,24 +147,41 @@ if __name__ == '__main__':
     # Replace STATION, STATIONNAME, and TAVGDIFF with appropriate expressions
 
     print('Top 5 differences:')
-    for row in None:
-        print(f'{STATION} at {STATIONNAME} difference {TAVGDIFF:0.1f} °C)')
+    if not no_suitable_stations:
+        for row in century_diff_df.orderBy('TAVGDIFF', ascending=False).limit(5).collect():
+            print(f'{row.STATION} at {row.NAME} difference {row.TAVGDIFF:0.1f} °C)')
+    else:
+        print('No suitable stations found in the dataset.')
+        
 
     # replace None with an appropriate expression
     print('Fraction of positive differences:')
-    print(None)
+    print(cen_pos_fraction)
+    
 
-    # Five-number summary of temperature differences, replace with appropriate expressions
-    print('Five-number summary of decade average difference values:')
-    tdiff_min, tdiff_q1, tdiff_median, tdiff_q3, tdiff_max = 5*[0.0]
-    print(f'tdiff_min {tdiff_min:0.1f} °C')
-    print(f'tdiff_q1 {tdiff_q1:0.1f} °C')
-    print(f'tdiff_median {tdiff_median:0.1f} °C')
-    print(f'tdiff_q3 {tdiff_q3:0.1f} °C')
-    print(f'tdiff_max {tdiff_max:0.1f} °C')
-
+    if not no_suitable_stations:
+        # Five-number summary of temperature differences, replace with appropriate expressions
+        print('Five-number summary of decade average difference values:')
+        tdiff_min, tdiff_q1, tdiff_median, tdiff_q3, tdiff_max = cen_five_num_summary
+        print(f'tdiff_min {tdiff_min:0.1f} °C')
+        print(f'tdiff_q1 {tdiff_q1:0.1f} °C')
+        print(f'tdiff_median {tdiff_median:0.1f} °C')
+        print(f'tdiff_q3 {tdiff_q3:0.1f} °C')
+        print(f'tdiff_max {tdiff_max:0.1f} °C')
+    else:
+        print('No suitable stations found in the dataset, cannot compute five-number summary.')
+        
+    
+    total_time = time.time() - start_time
+    measured_time = read_time + temp_avg_time + reg_time + century_diff_time
+    other = total_time - measured_time
     # Add your time measurements here
     # It may be interesting to also record more fine-grained times (e.g., how 
     # much time was spent computing vs. reading data)
     print(f'num workers: {args.num_workers}')
-    print(f'total time: {None:0.1f} s')
+    print(f'read time: {read_time:0.1f} s')
+    print(f'temp avg time: {temp_avg_time:0.1f} s')
+    print(f'regression time: {reg_time:0.1f} s')
+    print(f'century diff time: {century_diff_time:0.1f} s')
+    print(f'other time: {other:0.1f} s')
+    print(f'total time: {total_time:0.1f} s')

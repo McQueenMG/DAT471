@@ -1,0 +1,45 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/10 11:24:23 WARN Utils: Your hostname, callisto, resolves to a loopback address: 127.0.1.1; using 10.1.0.4 instead (on interface eno12399np0)
+26/05/10 11:24:23 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/05/10 11:24:25 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[Stage 1:>                                                        (0 + 64) / 64][Stage 1:>                                                        (1 + 63) / 64][Stage 1:==========>                                             (12 + 52) / 64][Stage 1:============================>                           (33 + 31) / 64][Stage 1:===================================================>     (58 + 6) / 64][Stage 1:========================================================>(63 + 1) / 64]                                                                                [Stage 2:>                                                        (0 + 64) / 64][Stage 2:>                                                        (1 + 63) / 64][Stage 2:=>                                                       (2 + 62) / 64][Stage 2:==>                                                      (3 + 61) / 64][Stage 2:===>                                                     (4 + 60) / 64][Stage 2:======>                                                  (7 + 57) / 64][Stage 2:========>                                                (9 + 55) / 64][Stage 2:========>                                               (10 + 54) / 64][Stage 2:==========>                                             (12 + 52) / 64][Stage 2:==============>                                         (17 + 47) / 64][Stage 2:=========================>                              (29 + 35) / 64][Stage 2:===================================>                    (40 + 24) / 64][Stage 2:================================================>        (55 + 9) / 64][Stage 2:=======================================================> (62 + 2) / 64][Stage 2:========================================================>(63 + 1) / 64][Stage 3:>                                                        (0 + 64) / 64][Stage 3:=========================>                              (29 + 35) / 64][Stage 5:>                                                       (0 + 64) / 200][Stage 5:=====>                                                 (21 + 65) / 200][Stage 5:===========>                                           (40 + 64) / 200][Stage 5:===============>                                       (58 + 64) / 200][Stage 5:===================>                                   (71 + 64) / 200][Stage 5:========================>                              (89 + 64) / 200][Stage 5:============================>                         (107 + 65) / 200][Stage 5:===================================>                  (131 + 63) / 200][Stage 5:==========================================>           (157 + 43) / 200][Stage 5:================================================>     (178 + 22) / 200][Stage 5:======================================================>(198 + 2) / 200]                                                                                [Stage 23:>                                                       (0 + 64) / 64][Stage 23:=====================================>                 (44 + 20) / 64]                                                                                Top 5 coefficients:
+USC00482175 at CRESTON, WY US BETA=2.817e-02 °F/d
+CA005062730 at SOUTH BAY, MB CA BETA=2.252e-02 °F/d
+USC00104910 at KILGORE, ID US BETA=1.244e-02 °F/d
+USC00506227 at STERLING, AK US BETA=8.704e-03 °F/d
+USC00398572 at VAN METRE, SD US BETA=6.979e-03 °F/d
+Fraction of positive coefficients:
+0.7453237410071942
+Five-number summary of BETA values:
+beta_min -2.649e-01
+beta_q1 -9.335e-07
+beta_median 6.300e-05
+beta_q3 1.382e-04
+beta_max 2.817e-02
+Top 5 differences:
+RSM00024266 at VERHOJANSK, RS difference 36.1 °C)
+KZ000028676 at PETROPAVLOVSK, KZ difference 17.2 °C)
+RSM00029612 at BARABINSK, RS difference 15.5 °C)
+USC00301974 at DANSVILLE, NY US difference 12.5 °C)
+USC00179891 at WOODLAND, ME US difference 11.9 °C)
+Fraction of positive differences:
+0.7520259319286872
+Five-number summary of decade average difference values:
+tdiff_min -16.4 °C
+tdiff_q1 0.0 °C
+tdiff_median 0.8 °C
+tdiff_q3 1.6 °C
+tdiff_max 36.1 °C
+num workers: 64
+read time: 9.3 s
+temp avg time: 0.2 s
+regression time: 27.2 s
+century diff time: 1.9 s
+other time: 0.9 s
+total time: 39.5 s
+INFO:    Terminating squashfuse_ll after timeout
+INFO:    Timeouts can be caused by a running background process
