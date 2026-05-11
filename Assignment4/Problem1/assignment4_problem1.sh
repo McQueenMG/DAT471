@@ -16,6 +16,6 @@ twitter_datapath="/data/courses/2026_dat471_dit066/datasets/twitter/twitter-2010
 apptainer exec \
   --bind "${twitter_datapath}:/mnt/twitter:ro" \
   "${containerpath}" \
-  python3 "${base_dir}/pyspark_twitter_follows.py" -w "${SLURM_CPUS_PER_TASK}" "/mnt/twitter"
+  python3 "${base_dir}/assignment4_problem1a.py" -w "${SLURM_CPUS_PER_TASK}" "/mnt/twitter"
 
 cp "assignment4prob1_${SLURM_JOB_ID}.log" "${base_dir}/output/assignment4prob1-${data_size}-${SLURM_CPUS_PER_TASK}.out"

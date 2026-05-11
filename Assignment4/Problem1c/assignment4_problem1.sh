@@ -2,7 +2,7 @@
 #SBATCH -t 00:30:00
 #SBATCH -p short
 #SBATCH -J twitter_followers
-#SBATCH --output=assignment4prob1_%j.log
+#SBATCH --output=assignment4prob1c_%j.log
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=64
 
@@ -16,6 +16,6 @@ twitter_datapath="/data/courses/2026_dat471_dit066/datasets/twitter/twitter-2010
 apptainer exec \
   --bind "${twitter_datapath}:/mnt/twitter:ro" \
   "${containerpath}" \
-  python3 "${base_dir}/pyspark_twitter_followers.py" -w "${SLURM_CPUS_PER_TASK}" "/mnt/twitter"
+  python3 "${base_dir}/assignment4_problem1c.py" -w "${SLURM_CPUS_PER_TASK}" "/mnt/twitter"
 
-cp "assignment4prob1_${SLURM_JOB_ID}.log" "${base_dir}/output/assignment4prob1-${data_size}-${SLURM_CPUS_PER_TASK}.out"
+cp "assignment4prob1c_${SLURM_JOB_ID}.log" "${base_dir}/output/assignment4prob1c-${data_size}-${SLURM_CPUS_PER_TASK}.out"
