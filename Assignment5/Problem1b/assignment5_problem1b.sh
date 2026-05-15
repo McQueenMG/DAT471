@@ -17,4 +17,4 @@ apptainer exec \
   "${containerpath}" \
   python3 "${base_dir}/hash_evaluator.py" -s "/mnt/words" -m "${m}"
 
-cp "assignment5prob1b_${SLURM_JOB_ID}.log" "${base_dir}/output/assignment5prob1b-${data_size}-${SLURM_CPUS_PER_TASK}.out"
+cp "assignment5prob1b_${SLURM_JOB_ID}.log" "${base_dir}/output/assignment5prob1b-${m}.out"

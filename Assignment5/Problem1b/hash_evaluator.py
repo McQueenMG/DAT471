@@ -42,17 +42,12 @@ if __name__ == '__main__':
     collision_probability = collision_count / key_pairs if key_pairs > 0 else 0
     hash_stdev = (m2 / n) ** 0.5
     
-    counts_mean = sum(counts) / B
-    counts_var = sum((x - counts_mean) ** 2 for x in counts) / B
-    counts_stdev = counts_var ** 0.5
     # print hash value, count, expected count.
-    print('Hash value<tab>Count<tab>Expected Count')
+    print('Hash value\tCount\tExpected Count')
     for hash_value in unique_hashes:
         print(f'{hash_value}\t{counts[hash_value]}\t{len(words)/B:.0f}')
     
-    print(f'Hash value mean: {hash_mean:.4f}')
-    print(f'Hash value standard deviation: {hash_stdev:.4f}')
-    print(f'Counts mean: {counts_mean:.4f}')
-    print(f'Counts standard deviation: {counts_stdev:.4f}')
-    print(f'Collision probability: {collision_probability:.4f}')
+    print(f'Hash value mean: {hash_mean:.4f}, expected: {(B - 1) / 2:.4f}')
+    print(f'Hash value standard deviation: {hash_stdev:.4f}, expected: {((B**2 - 1) / 12)**0.5:.4f}')
+    print(f'Collision probability: {collision_probability:.6f}, expected: {1.0/B:.6f}')
     

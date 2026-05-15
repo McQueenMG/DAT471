@@ -1,4 +1,4 @@
-Hash value<tab>Count<tab>Expected Count
+Hash value	Count	Expected Count
 0	3258	3287
 1	3293	3287
 2	3352	3287
@@ -127,8 +127,6 @@ Hash value<tab>Count<tab>Expected Count
 125	3403	3287
 126	3242	3287
 127	3255	3287
-Hash value mean: 63.4807
-Hash value standard deviation: 36.9262
-Counts mean: 3287.2578
-Counts standard deviation: 61.9214
-Collision probability: 0.0078
+Hash value mean: 63.4807, expected: 63.5000
+Hash value standard deviation: 36.9262, expected: 36.9493
+Collision probability: 0.007813, expected: 0.007812
