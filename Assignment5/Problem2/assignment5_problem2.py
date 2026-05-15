@@ -7,10 +7,6 @@ def rol32(x,k):
     """Auxiliary function (left rotation for 32-bit words)"""
     return ((x << k) | (x >> (32-k))) & 0xffffffff
 
-def swapToLittleEndian(x):
-    """Auxiliary function to swap endianness of a 32-bit word"""
-    return ((x & 0xff) << 24) | ((x & 0xff00) << 8) | ((x & 0xff0000) >> 8) | ((x & 0xff000000) >> 24)
-
 def murmur3_32(key, seed):
     """Computes the 32-bit murmur3 hash"""
     # use the implementation from Problem 1
@@ -42,11 +38,11 @@ def murmur3_32(key, seed):
         
     remainder = byte8_key[nblocks*4:]
     if len(remainder) > 0:
-        remainder = swapToLittleEndian(int.from_bytes(remainder, byteorder='little'))
-        remainder = remainder * c1 & 0xffffffff
-        remainder = rol32(remainder, r1)
-        remainder = remainder * c2 & 0xffffffff
-        hash = hash ^ remainder & 0xffffffff
+        k1 = int.from_bytes(remainder, byteorder='little')
+        k1 = (k1 * c1) & 0xffffffff
+        k1 = rol32(k1, r1)
+        k1 = (k1 * c2) & 0xffffffff
+        hash = (hash ^ k1) & 0xffffffff
     
     hash = hash ^ len_key & 0xffffffff
     hash = hash ^ (hash >> 16)
@@ -67,15 +63,10 @@ def dlog2(n):
 
 def rho(n):
     """Given a 32-bit number n, return the 1-based position of the first
-    1-bit"""
-    n = n & 0xffffffff
+    1-bit from the left"""
     if n == 0:
         return 0
-    i = 1
-    while not (n & 1):
-        n >>= 1
-        i += 1
-    return i
+    return 32 - n.bit_length() + 1
 
 def compute_jr(key,seed,log2m):
     """hash the string key with murmur3_32, using the given seed

@@ -6,10 +6,6 @@ def rol32(x,k):
     """Auxiliary function (left rotation for 32-bit words)"""
     return ((x << k) | (x >> (32-k))) & 0xffffffff
 
-def swapToLittleEndian(x):
-    """Auxiliary function to swap endianness of a 32-bit word"""
-    return ((x & 0xff) << 24) | ((x & 0xff00) << 8) | ((x & 0xff0000) >> 8) | ((x & 0xff000000) >> 24)
-
 def murmur3_32(key, seed):
     """Computes the 32-bit murmur3 hash"""
     
@@ -41,11 +37,11 @@ def murmur3_32(key, seed):
         
     remainder = byte8_key[nblocks*4:]
     if len(remainder) > 0:
-        remainder = swapToLittleEndian(int.from_bytes(remainder, byteorder='little'))
-        remainder = remainder * c1 & 0xffffffff
-        remainder = rol32(remainder, r1)
-        remainder = remainder * c2 & 0xffffffff
-        hash = hash ^ remainder & 0xffffffff
+        k1 = int.from_bytes(remainder, byteorder='little')
+        k1 = (k1 * c1) & 0xffffffff
+        k1 = rol32(k1, r1)
+        k1 = (k1 * c2) & 0xffffffff
+        hash = (hash ^ k1) & 0xffffffff
     
     hash = hash ^ len_key & 0xffffffff
     hash = hash ^ (hash >> 16)
@@ -72,4 +68,3 @@ if __name__ == '__main__':
     for key in args.key:
         h = murmur3_32(key,seed)
         print(f'{h:#010x}\t{key}')
-        
