@@ -1,0 +1,354 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/16 14:09:01 WARN Utils: Your hostname, callisto, resolves to a loopback address: 127.0.1.1; using 10.1.0.4 instead (on interface eno12399np0)
+26/05/16 14:09:01 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/05/16 14:09:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[Stage 0:>                                                         (0 + 0) / 64]26/05/16 14:15:42 WARN TaskSetManager: Stage 0 contains a task of very large size (308696 KiB). The maximum recommended task size is 1000 KiB.
+[Stage 0:>                                                         (0 + 1) / 64][Stage 0:>                                                         (0 + 2) / 64][Stage 0:>                                                         (0 + 3) / 64][Stage 0:>                                                         (0 + 4) / 64][Stage 0:>                                                         (0 + 5) / 64][Stage 0:>                                                         (0 + 6) / 64][Stage 0:>                                                         (0 + 7) / 64][Stage 0:>                                                         (0 + 8) / 64][Stage 0:>                                                         (0 + 9) / 64][Stage 0:>                                                        (0 + 10) / 64][Stage 0:>                                                        (0 + 11) / 64][Stage 0:>                                                        (0 + 12) / 64][Stage 0:>                                                        (0 + 13) / 64][Stage 0:>                                                        (0 + 14) / 64][Stage 0:>                                                        (0 + 15) / 64][Stage 0:>                                                        (0 + 16) / 64][Stage 0:>                                                        (0 + 17) / 64][Stage 0:>                                                        (0 + 18) / 64][Stage 0:>                                                        (0 + 19) / 64][Stage 0:>                                                        (0 + 20) / 64][Stage 0:>                                                        (0 + 21) / 64][Stage 0:>                                                        (0 + 22) / 64][Stage 0:>                                                        (0 + 23) / 64][Stage 0:>                                                        (0 + 24) / 64][Stage 0:>                                                        (0 + 26) / 64][Stage 0:>                                                        (0 + 27) / 64][Stage 0:>                                                        (0 + 28) / 64][Stage 0:>                                                        (0 + 29) / 64][Stage 0:>                                                        (0 + 30) / 64][Stage 0:>                                                        (0 + 31) / 64][Stage 0:>                                                        (0 + 32) / 64][Stage 0:>                                                        (0 + 33) / 64][Stage 0:>                                                        (0 + 34) / 64][Stage 0:>                                                        (0 + 35) / 64][Stage 0:>                                                        (0 + 36) / 64][Stage 0:>                                                        (0 + 37) / 64][Stage 0:>                                                        (0 + 38) / 64][Stage 0:>                                                        (0 + 39) / 64][Stage 0:>                                                        (0 + 40) / 64][Stage 0:>                                                        (0 + 41) / 64][Stage 0:>                                                        (0 + 42) / 64][Stage 0:>                                                        (0 + 43) / 64][Stage 0:>                                                        (0 + 44) / 64][Stage 0:>                                                        (0 + 45) / 64][Stage 0:>                                                        (0 + 46) / 64][Stage 0:>                                                        (0 + 47) / 64][Stage 0:>                                                        (0 + 48) / 64][Stage 0:>                                                        (0 + 49) / 64][Stage 0:>                                                        (0 + 50) / 64][Stage 0:>                                                        (0 + 51) / 64][Stage 0:>                                                        (0 + 52) / 64][Stage 0:>                                                        (0 + 53) / 64][Stage 0:>                                                        (0 + 54) / 64][Stage 0:>                                                        (0 + 55) / 64][Stage 0:>                                                        (0 + 56) / 64][Stage 0:>                                                        (0 + 57) / 64][Stage 0:>                                                        (0 + 58) / 64][Stage 0:>                                                        (0 + 59) / 64][Stage 0:>                                                        (0 + 60) / 64][Stage 0:>                                                        (0 + 61) / 64][Stage 0:>                                                        (0 + 62) / 64][Stage 0:>                                                        (0 + 63) / 64][Stage 0:>                                                        (0 + 64) / 64]26/05/16 14:16:10 ERROR Executor: Exception in task 50.0 in stage 0.0 (TID 50)
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR Executor: Exception in task 24.0 in stage 0.0 (TID 24)
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR Executor: Exception in task 18.0 in stage 0.0 (TID 18)
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR Executor: Exception in task 11.0 in stage 0.0 (TID 11)
+java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.reflect.Array.newInstance(Array.java:78)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2121)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2157)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:647)
+	at org.apache.spark.rdd.ParallelCollectionPartition.$anonfun$readObject$1(ParallelCollectionRDD.scala:74)
+	at org.apache.spark.rdd.ParallelCollectionPartition$$Lambda$1508/0x00007d27f46fb970.apply$mcV$sp(Unknown Source)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException(SparkErrorUtils.scala:37)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException$(SparkErrorUtils.scala:35)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:97)
+	at org.apache.spark.rdd.ParallelCollectionPartition.readObject(ParallelCollectionRDD.scala:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1100)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2423)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:509)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:467)
+26/05/16 14:16:10 ERROR Executor: Exception in task 32.0 in stage 0.0 (TID 32)
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR Executor: Exception in task 56.0 in stage 0.0 (TID 56)
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR Executor: Exception in task 22.0 in stage 0.0 (TID 22)
+java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.reflect.Array.newInstance(Array.java:78)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2121)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2157)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:647)
+	at org.apache.spark.rdd.ParallelCollectionPartition.$anonfun$readObject$1(ParallelCollectionRDD.scala:74)
+	at org.apache.spark.rdd.ParallelCollectionPartition$$Lambda$1508/0x00007d27f46fb970.apply$mcV$sp(Unknown Source)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException(SparkErrorUtils.scala:37)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException$(SparkErrorUtils.scala:35)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:97)
+	at org.apache.spark.rdd.ParallelCollectionPartition.readObject(ParallelCollectionRDD.scala:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1100)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2423)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:509)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:467)
+26/05/16 14:16:10 ERROR Executor: Exception in task 14.0 in stage 0.0 (TID 14)
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR Executor: Exception in task 7.0 in stage 0.0 (TID 7)
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker for task 24.0 in stage 0.0 (TID 24),5,main]
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker for task 56.0 in stage 0.0 (TID 56),5,main]
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker for task 7.0 in stage 0.0 (TID 7),5,main]
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker for task 14.0 in stage 0.0 (TID 14),5,main]
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker for task 32.0 in stage 0.0 (TID 32),5,main]
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker for task 18.0 in stage 0.0 (TID 18),5,main]
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker for task 11.0 in stage 0.0 (TID 11),5,main]
+java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.reflect.Array.newInstance(Array.java:78)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2121)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2157)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:647)
+	at org.apache.spark.rdd.ParallelCollectionPartition.$anonfun$readObject$1(ParallelCollectionRDD.scala:74)
+	at org.apache.spark.rdd.ParallelCollectionPartition$$Lambda$1508/0x00007d27f46fb970.apply$mcV$sp(Unknown Source)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException(SparkErrorUtils.scala:37)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException$(SparkErrorUtils.scala:35)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:97)
+	at org.apache.spark.rdd.ParallelCollectionPartition.readObject(ParallelCollectionRDD.scala:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1100)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2423)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:509)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:467)
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker for task 22.0 in stage 0.0 (TID 22),5,main]
+java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.reflect.Array.newInstance(Array.java:78)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2121)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2157)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:647)
+	at org.apache.spark.rdd.ParallelCollectionPartition.$anonfun$readObject$1(ParallelCollectionRDD.scala:74)
+	at org.apache.spark.rdd.ParallelCollectionPartition$$Lambda$1508/0x00007d27f46fb970.apply$mcV$sp(Unknown Source)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException(SparkErrorUtils.scala:37)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException$(SparkErrorUtils.scala:35)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:97)
+	at org.apache.spark.rdd.ParallelCollectionPartition.readObject(ParallelCollectionRDD.scala:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1100)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2423)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:509)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:467)
+26/05/16 14:16:10 ERROR SparkUncaughtExceptionHandler: [Container in shutdown] Uncaught exception in thread Thread[Executor task launch worker for task 50.0 in stage 0.0 (TID 50),5,main]
+java.lang.OutOfMemoryError: Java heap space
+26/05/16 14:16:10 WARN TaskSetManager: Lost task 22.0 in stage 0.0 (TID 22) (callisto executor driver): java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.reflect.Array.newInstance(Array.java:78)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2121)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2157)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:647)
+	at org.apache.spark.rdd.ParallelCollectionPartition.$anonfun$readObject$1(ParallelCollectionRDD.scala:74)
+	at org.apache.spark.rdd.ParallelCollectionPartition$$Lambda$1508/0x00007d27f46fb970.apply$mcV$sp(Unknown Source)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException(SparkErrorUtils.scala:37)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException$(SparkErrorUtils.scala:35)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:97)
+	at org.apache.spark.rdd.ParallelCollectionPartition.readObject(ParallelCollectionRDD.scala:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1100)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2423)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:509)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:467)
+
+26/05/16 14:16:10 ERROR TaskSetManager: Task 22 in stage 0.0 failed 1 times; aborting job
+Traceback (most recent call last):
+  File "/data/users/melkergu/DAT471/Assignment5/Problem3/assignment5_problem3.py", line 171, in <module>
+    V = m - jr_pairs.count()
+            ~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/pyspark/core/rdd.py", line 2183, in count
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/pyspark/core/rdd.py", line 2158, in sum
+    return self.mapPartitions(lambda x: [sum(x)]).fold(  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        0, operator.add
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/pyspark/core/rdd.py", line 1911, in fold
+    vals = self.mapPartitions(func).collect()
+  File "/opt/conda/lib/python3.13/site-packages/pyspark/core/rdd.py", line 1700, in collect
+    sock_info = self.ctx._jvm.PythonRDD.collectAndServe(self._jrdd.rdd())
+  File "/opt/conda/lib/python3.13/site-packages/py4j/java_gateway.py", line 1362, in __call__
+    return_value = get_return_value(
+        answer, self.gateway_client, self.target_id, self.name)
+  File "/opt/conda/lib/python3.13/site-packages/py4j/protocol.py", line 327, in get_return_value
+    raise Py4JJavaError(
+        "An error occurred while calling {0}{1}{2}.\n".
+        format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 22 in stage 0.0 failed 1 times, most recent failure: Lost task 22.0 in stage 0.0 (TID 22) (callisto executor driver): java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.reflect.Array.newInstance(Array.java:78)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2121)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2157)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:647)
+	at org.apache.spark.rdd.ParallelCollectionPartition.$anonfun$readObject$1(ParallelCollectionRDD.scala:74)
+	at org.apache.spark.rdd.ParallelCollectionPartition$$Lambda$1508/0x00007d27f46fb970.apply$mcV$sp(Unknown Source)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException(SparkErrorUtils.scala:37)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException$(SparkErrorUtils.scala:35)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:97)
+	at org.apache.spark.rdd.ParallelCollectionPartition.readObject(ParallelCollectionRDD.scala:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1100)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2423)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:509)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:467)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$3(DAGScheduler.scala:3122)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:3122)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:3114)
+	at scala.collection.immutable.List.foreach(List.scala:323)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:3114)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1303)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1303)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1303)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3397)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3328)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3317)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:50)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:1017)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2496)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2517)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2536)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2561)
+	at org.apache.spark.rdd.RDD.$anonfun$collect$1(RDD.scala:1057)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:417)
+	at org.apache.spark.rdd.RDD.collect(RDD.scala:1056)
+	at org.apache.spark.api.python.PythonRDD$.collectAndServe(PythonRDD.scala:205)
+	at org.apache.spark.api.python.PythonRDD.collectAndServe(PythonRDD.scala)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.reflect.Array.newInstance(Array.java:78)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2121)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream.readArray(ObjectInputStream.java:2157)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1721)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:647)
+	at org.apache.spark.rdd.ParallelCollectionPartition.$anonfun$readObject$1(ParallelCollectionRDD.scala:74)
+	at org.apache.spark.rdd.ParallelCollectionPartition$$Lambda$1508/0x00007d27f46fb970.apply$mcV$sp(Unknown Source)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException(SparkErrorUtils.scala:37)
+	at org.apache.spark.util.SparkErrorUtils.tryOrIOException$(SparkErrorUtils.scala:35)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:97)
+	at org.apache.spark.rdd.ParallelCollectionPartition.readObject(ParallelCollectionRDD.scala:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1100)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2423)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2457)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:509)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:467)
+
+Exception in thread "Executor task launch worker for task 52.0 in stage 0.0 (TID 52)" java.lang.NullPointerException: Cannot invoke "org.apache.spark.SparkEnv.closureSerializer()" because the return value of "org.apache.spark.SparkEnv$.get()" is null
+	at org.apache.spark.scheduler.Task.metrics$lzycompute(Task.scala:77)
+	at org.apache.spark.scheduler.Task.metrics(Task.scala:76)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$collectAccumulatorsAndResetStatusOnFailure$1(Executor.scala:611)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$collectAccumulatorsAndResetStatusOnFailure$1$adapted(Executor.scala:610)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.executor.Executor$TaskRunner.collectAccumulatorsAndResetStatusOnFailure(Executor.scala:610)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:850)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+INFO:    Terminating squashfuse_ll after timeout
+INFO:    Timeouts can be caused by a running background process

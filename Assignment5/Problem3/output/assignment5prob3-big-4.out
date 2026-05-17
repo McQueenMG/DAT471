@@ -1,0 +1,14 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/16 12:10:47 WARN Utils: Your hostname, callisto, resolves to a loopback address: 127.0.1.1; using 10.1.0.4 instead (on interface eno12399np0)
+26/05/16 12:10:47 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/05/16 12:10:50 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/05/16 12:10:51 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+26/05/16 12:10:51 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[Stage 0:>                                                          (0 + 0) / 4]26/05/16 12:11:02 WARN TaskSetManager: Stage 0 contains a task of very large size (394532 KiB). The maximum recommended task size is 1000 KiB.
+[Stage 0:>                                                          (0 + 1) / 4][Stage 0:>                                                          (0 + 2) / 4][Stage 0:>                                                          (0 + 3) / 4][Stage 0:>                                                          (0 + 4) / 4][Stage 0:>                                                          (0 + 4) / 4][Stage 0:>                                                          (0 + 4) / 4][Stage 0:>                                                          (0 + 4) / 4][Stage 0:>                                                          (0 + 4) / 4][Stage 0:==============>                                            (1 + 3) / 4][Stage 0:=============================>                             (2 + 2) / 4][Stage 0:============================================>              (3 + 1) / 4][Stage 0:============================================>              (3 + 1) / 4]                                                                                Cardinality estimate: 8708721.01476746
+Number of workers: 4
+Took 370.8445086479187 s
