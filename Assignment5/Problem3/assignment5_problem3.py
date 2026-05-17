@@ -180,9 +180,9 @@ if __name__ == '__main__':
     
     end = time.time()
 
-    n_actual = len(set(data.flatMap(lambda text: text.split()).collect()))
+    #n_actual = len(set(data.flatMap(lambda text: text.split()).collect()))
     
-    print(f'Actual cardinality: {n_actual}')
+    #print(f'Actual cardinality: {n_actual}')
     #print(f'Seed: 0x{seed:0x}', f'm: {m}')
     print(f'Cardinality estimate: {E}')
     print(f'Number of workers: {num_workers}')
