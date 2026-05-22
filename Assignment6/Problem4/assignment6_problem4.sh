@@ -12,9 +12,9 @@ containerpath="/data/courses/2026_dat471_dit066/containers/assignment6.sif"
 small=glove.6B.50d
 big=glove.840B.300d
 datapath="/data/courses/2026_dat471_dit066/datasets/glove/${big}.txt"
-D=50
-k=20
-L=10
+D=70
+k=30
+L=20
 
 apptainer exec \
   --bind "${datapath}:/mnt/data:ro" \
