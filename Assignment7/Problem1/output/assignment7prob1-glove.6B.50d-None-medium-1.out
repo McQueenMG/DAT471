@@ -1,0 +1,4 @@
+Loading dataset (400000 vectors of length 50) took 1.5407817363739014
+Performing 1000 NN queries took 478.12740683555603
+Number of erroneous queries: 0
+Data: /data/courses/2026_dat471_dit066/datasets/glove/glove.6B.50d.txt, Query: /data/courses/2026_dat471_dit066/datasets/glove/glove.6B.50d_queries_medium.txt, Batch size: None, CPUs: 1

@@ -1,0 +1,4 @@
+Loading dataset (46988 vectors of length 2) took 0.10349035263061523
+Performing 10 NN queries took 0.5765068531036377
+Number of erroneous queries: 0
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_tiny.txt, Batch size: None, CPUs: 1

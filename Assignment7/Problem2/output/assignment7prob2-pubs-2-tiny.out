@@ -1,0 +1,8 @@
+Loading dataset (46988 vectors of length 2) to the CPU took 0.16506552696228027
+Transferring dataset to the GPU took 0.3958263397216797
+Loading queries (10 vectors of length 2) to the CPU took 0.0006117820739746094
+Transferring queries to the GPU took 0.0001647472381591797
+Performing 10 NN queries took 1.2829358577728271
+Number of erroneous queries: 0
+Transferring results to the CPU took 0.00011491775512695312
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_tiny.txt, Batch size: 2

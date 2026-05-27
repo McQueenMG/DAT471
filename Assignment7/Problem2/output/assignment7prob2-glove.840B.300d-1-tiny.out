@@ -1,0 +1,8 @@
+Loading dataset (2196017 vectors of length 300) to the CPU took 47.71484923362732
+Transferring dataset to the GPU took 1.4905779361724854
+Loading queries (10 vectors of length 300) to the CPU took 0.001859426498413086
+Transferring queries to the GPU took 0.0033905506134033203
+Performing 10 NN queries took 1.4093773365020752
+Number of erroneous queries: 0
+Transferring results to the CPU took 0.0001571178436279297
+Data: /data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d.txt, Query: /data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d_queries_tiny.txt, Batch size: 1
