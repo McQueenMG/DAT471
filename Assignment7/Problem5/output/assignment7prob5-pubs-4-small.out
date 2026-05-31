@@ -1,0 +1,27 @@
+9th query was erroneous: got "Birchington United Services Club", but expected "Birchington Club"
+31th query was erroneous: got "Black Bull", but expected "Whittlesey Conservative Club"
+36th query was erroneous: got "Shooters", but expected "Fernandes Brewery Tap And Bier Kelle"
+41th query was erroneous: got "The Chequers", but expected "The Crown Inn"
+44th query was erroneous: got "Kirkcaldy Golf Club", but expected "Raith Rovers Football Club"
+46th query was erroneous: got "Guildhall Arts Centre Bars and Kitchens", but expected "Tollemache Inn"
+47th query was erroneous: got "Bar Ibiza", but expected "Zy Bar"
+49th query was erroneous: got "Bar 104", but expected "Hardie's"
+54th query was erroneous: got "Paddock Institute and Conservative Club", but expected "Paddock Cricket and Bowling Club"
+59th query was erroneous: got "Edwards", but expected "Taboo"
+72th query was erroneous: got "Leicester Banks Sports Club", but expected "Old Aylestone Social Club Ltd"
+74th query was erroneous: got "The rake", but expected "Miraflores bar & lounge"
+76th query was erroneous: got "Wine Vaults", but expected "The Oxford Arms"
+77th query was erroneous: got "Cavalieri", but expected "Shanakee"
+82th query was erroneous: got "Royal British Legion", but expected "Inn"
+84th query was erroneous: got "Curley's Bar", but expected "Ye Olde Fleece"
+86th query was erroneous: got "Orchard Foods", but expected "Wickford Community Association"
+92th query was erroneous: got "BOROUGH ARMS LTD", but expected "LYMINGTON COMMUNITY ASSOCIATION"
+97th query was erroneous: got "The Church Inn", but expected "Mobberley Victory Hall Memorial Club"
+Loading dataset (46988 vectors of length 2) to the CPU took 0.18782544136047363
+Transferring dataset to the GPU took 0.3171048164367676
+Loading queries (100 vectors of length 2) to the CPU took 0.0004811286926269531
+Transferring queries to the GPU took 0.00013828277587890625
+Performing 100 NN queries took 1.4380724430084229
+Number of erroneous queries: 19
+Transferring results to the CPU took 7.200241088867188e-05
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_small.txt, Batch size: 4

@@ -1,8 +1,8 @@
-Loading dataset (2196017 vectors of length 300) to the CPU took 45.44207572937012
-Transferring dataset to the GPU took 1.462167739868164
-Loading queries (10000 vectors of length 300) to the CPU took 0.17183446884155273
-Transferring queries to the GPU took 0.005992889404296875
-Performing 10000 NN queries took 128.80409407615662
+Loading dataset (2196017 vectors of length 300) to the CPU took 47.97147989273071
+Transferring dataset to the GPU took 1.4769575595855713
+Loading queries (10000 vectors of length 300) to the CPU took 0.17282843589782715
+Transferring queries to the GPU took 0.005919218063354492
+Performing 10000 NN queries took 129.6776831150055
 Number of erroneous queries: 0
-Transferring results to the CPU took 0.00026106834411621094
+Transferring results to the CPU took 0.00024008750915527344
 Data: /data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d.txt, Query: /data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d_queries_big.txt, Batch size: 2

@@ -1,0 +1,9 @@
+5th query was erroneous: got "The Griffin", but expected "White Harte"
+Loading dataset (46988 vectors of length 2) to the CPU took 0.1801137924194336
+Transferring dataset to the GPU took 0.4213109016418457
+Loading queries (10 vectors of length 2) to the CPU took 0.000732421875
+Transferring queries to the GPU took 0.00017714500427246094
+Performing 10 NN queries took 2.1184043884277344
+Number of erroneous queries: 1
+Transferring results to the CPU took 0.0001327991485595703
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_tiny.txt, Batch size: 4

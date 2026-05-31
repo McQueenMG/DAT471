@@ -1,0 +1,8 @@
+Loading dataset (400000 vectors of length 50) to the CPU took 2.5053563117980957
+Transferring dataset to the GPU took 0.27793312072753906
+Loading queries (10000 vectors of length 50) to the CPU took 0.04308819770812988
+Transferring queries to the GPU took 0.0013501644134521484
+Performing 10000 NN queries took 1.9232268333435059
+Number of erroneous queries: 0
+Transferring results to the CPU took 0.00020647048950195312
+Data: /data/courses/2026_dat471_dit066/datasets/glove/glove.6B.50d.txt, Query: /data/courses/2026_dat471_dit066/datasets/glove/glove.6B.50d_queries_big.txt, Batch size: 2048

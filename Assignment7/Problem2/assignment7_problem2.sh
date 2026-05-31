@@ -14,7 +14,7 @@ glovesmallpath="/data/courses/2026_dat471_dit066/datasets/glove/glove.6B.50d.txt
 glovebigpath="/data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d.txt"
 pubspath="/data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv"
 
-querysize="tiny"
+querysize="big"
 glovesmallquerypath="/data/courses/2026_dat471_dit066/datasets/glove/glove.6B.50d_queries_${querysize}"
 glovebigquerypath="/data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d_queries_${querysize}"
 pubsquerypath="/data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_${querysize}"
@@ -23,7 +23,7 @@ data="${pubspath}"
 query="${pubsquerypath}.txt"
 facit="${pubsquerypath}_names.txt"
 
-batchsize=2
+batchsize=10000
 
 
 data_base=$(basename "${data}")

@@ -1,0 +1,24 @@
+22th query was erroneous: got "Sir Joshua Reynolds", but expected "Plympton Conservative Club"
+31th query was erroneous: got "Black Bull", but expected "Whittlesey Conservative Club"
+36th query was erroneous: got "Shooters", but expected "Fernandes Brewery Tap And Bier Kelle"
+41th query was erroneous: got "The Grapes", but expected "The Crown Inn"
+46th query was erroneous: got "The Avenue Hotel", but expected "Tollemache Inn"
+47th query was erroneous: got "Bar Ibiza", but expected "Zy Bar"
+49th query was erroneous: got "Wyndham Arms", but expected "Hardie's"
+58th query was erroneous: got "The Warehouse", but expected "The Three Horse Shoes"
+72th query was erroneous: got "Leicester Banks Sports Club", but expected "Old Aylestone Social Club Ltd"
+74th query was erroneous: got "The rake", but expected "Miraflores bar & lounge"
+76th query was erroneous: got "Wine Vaults", but expected "The Oxford Arms"
+77th query was erroneous: got "Cavalieri", but expected "Shanakee"
+84th query was erroneous: got "Grey Nags Head", but expected "Ye Olde Fleece"
+86th query was erroneous: got "Orchard Foods", but expected "Wickford Community Association"
+92th query was erroneous: got "BOROUGH ARMS LTD", but expected "LYMINGTON COMMUNITY ASSOCIATION"
+97th query was erroneous: got "The Church Inn", but expected "Mobberley Victory Hall Memorial Club"
+Loading dataset (46988 vectors of length 2) to the CPU took 0.17144298553466797
+Transferring dataset to the GPU took 0.19880151748657227
+Loading queries (100 vectors of length 2) to the CPU took 0.0006203651428222656
+Transferring queries to the GPU took 0.00013256072998046875
+Performing 100 NN queries took 1.4684925079345703
+Number of erroneous queries: 16
+Transferring results to the CPU took 0.0001442432403564453
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_small.txt, Batch size: 64

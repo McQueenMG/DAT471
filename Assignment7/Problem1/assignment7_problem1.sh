@@ -19,11 +19,11 @@ glovesmallquerypath="/data/courses/2026_dat471_dit066/datasets/glove/glove.6B.50
 glovebigquerypath="/data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d_queries_${querysize}"
 pubsquerypath="/data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_${querysize}"
 
-data="${pubspath}"
-query="${pubsquerypath}.txt"
-facit="${pubsquerypath}_names.txt"
+data="${glovebigpath}"
+query="${glovebigquerypath}.txt"
+facit="${glovebigquerypath}_names.txt"
 
-# batchsize=2
+# batchsize=1
 batchsize=None
 
 

@@ -1,0 +1,4 @@
+Loading dataset (2196017 vectors of length 300) took 46.131067991256714
+Performing 100 NN queries took 30.217273950576782
+Number of erroneous queries: 0
+Data: /data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d.txt, Query: /data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d_queries_small.txt, Batch size: 4

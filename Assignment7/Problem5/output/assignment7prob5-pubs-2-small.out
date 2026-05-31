@@ -1,0 +1,26 @@
+9th query was erroneous: got "Birchington United Services Club", but expected "Birchington Club"
+31th query was erroneous: got "Black Bull", but expected "Whittlesey Conservative Club"
+34th query was erroneous: got "Diamond Avenue W.M.C", but expected "Nags Head"
+36th query was erroneous: got "Shooters", but expected "Fernandes Brewery Tap And Bier Kelle"
+41th query was erroneous: got "The Chequers", but expected "The Crown Inn"
+46th query was erroneous: got "The Avenue Hotel", but expected "Tollemache Inn"
+47th query was erroneous: got "Bar Ibiza", but expected "Zy Bar"
+49th query was erroneous: got "Bar 104", but expected "Hardie's"
+54th query was erroneous: got "Paddock Institute and Conservative Club", but expected "Paddock Cricket and Bowling Club"
+72th query was erroneous: got "Leicester Banks Sports Club", but expected "Old Aylestone Social Club Ltd"
+74th query was erroneous: got "The rake", but expected "Miraflores bar & lounge"
+76th query was erroneous: got "Wine Vaults", but expected "The Oxford Arms"
+77th query was erroneous: got "Cavalieri", but expected "Shanakee"
+82th query was erroneous: got "Royal British Legion", but expected "Inn"
+84th query was erroneous: got "Grey Nags Head", but expected "Ye Olde Fleece"
+86th query was erroneous: got "Orchard Foods", but expected "Wickford Community Association"
+92th query was erroneous: got "BOROUGH ARMS LTD", but expected "LYMINGTON COMMUNITY ASSOCIATION"
+97th query was erroneous: got "The Church Inn", but expected "Mobberley Victory Hall Memorial Club"
+Loading dataset (46988 vectors of length 2) to the CPU took 0.14751124382019043
+Transferring dataset to the GPU took 0.21266579627990723
+Loading queries (100 vectors of length 2) to the CPU took 0.0005078315734863281
+Transferring queries to the GPU took 0.00013375282287597656
+Performing 100 NN queries took 1.4251339435577393
+Number of erroneous queries: 18
+Transferring results to the CPU took 6.341934204101562e-05
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_small.txt, Batch size: 2

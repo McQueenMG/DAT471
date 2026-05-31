@@ -1,8 +1,8 @@
-Loading dataset (46988 vectors of length 2) to the CPU took 0.1768336296081543
-Transferring dataset to the GPU took 0.23074555397033691
-Loading queries (10 vectors of length 2) to the CPU took 0.0006556510925292969
-Transferring queries to the GPU took 0.0001690387725830078
-Performing 10 NN queries took 1.2802960872650146
+Loading dataset (46988 vectors of length 2) to the CPU took 0.15777277946472168
+Transferring dataset to the GPU took 0.8401176929473877
+Loading queries (10 vectors of length 2) to the CPU took 0.002184629440307617
+Transferring queries to the GPU took 0.00026988983154296875
+Performing 10 NN queries took 0.7354745864868164
 Number of erroneous queries: 0
-Transferring results to the CPU took 0.0001380443572998047
+Transferring results to the CPU took 0.00015473365783691406
 Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_tiny.txt, Batch size: 4

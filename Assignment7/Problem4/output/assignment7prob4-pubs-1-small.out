@@ -1,0 +1,28 @@
+20th query was erroneous: got "The Rising Sun Domino Club", but expected "Ship Inn"
+29th query was erroneous: got "Basebowl", but expected "Saltcoats Bowling Club"
+31th query was erroneous: got "Black Bull", but expected "Whittlesey Conservative Club"
+41th query was erroneous: got "Plush", but expected "The Crown Inn"
+43th query was erroneous: got "Draft house", but expected "Kings arms"
+44th query was erroneous: got "Kirkcaldy Golf Club", but expected "Raith Rovers Football Club"
+46th query was erroneous: got "Grantham Snooker & Pool Club", but expected "Tollemache Inn"
+47th query was erroneous: got "Bar Ibiza", but expected "Zy Bar"
+50th query was erroneous: got "CASTLE INN", but expected "LLANGENNECH RUGBY SOCIAL CLUB"
+52th query was erroneous: got "Nags Head Public House", but expected "Out Of Town Public House"
+54th query was erroneous: got "Paddock Institute and Conservative Club", but expected "Paddock Cricket and Bowling Club"
+59th query was erroneous: got "Edwards", but expected "Taboo"
+72th query was erroneous: got "Leicester Banks Sports Club", but expected "Old Aylestone Social Club Ltd"
+74th query was erroneous: got "The rake", but expected "Miraflores bar & lounge"
+76th query was erroneous: got "Wine Vaults", but expected "The Oxford Arms"
+77th query was erroneous: got "BeerKat", but expected "Shanakee"
+80th query was erroneous: got "Two Broomsticks", but expected "The Crook Hotel"
+84th query was erroneous: got "Curley's Bar", but expected "Ye Olde Fleece"
+86th query was erroneous: got "Orchard Foods", but expected "Wickford Community Association"
+98th query was erroneous: got "The Crown Hotel", but expected "The Blue Ball"
+Loading dataset (46988 vectors of length 2) to the CPU took 0.19593048095703125
+Transferring dataset to the GPU took 0.24123239517211914
+Loading queries (100 vectors of length 2) to the CPU took 0.0024361610412597656
+Transferring queries to the GPU took 0.00019669532775878906
+Performing 100 NN queries took 2.3694441318511963
+Number of erroneous queries: 20
+Transferring results to the CPU took 0.0001347064971923828
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_small.txt, Batch size: 1

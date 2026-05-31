@@ -26,6 +26,13 @@ METRIC_LABELS = {
 	"transfer_results_cpu": "Transferring results to CPU",
 }
 
+QUERY_COUNTS = {
+	"tiny": 10,
+	"small": 100,
+	"medium": 1000,
+	"big": 10000,
+}
+
 FILENAME_PATTERN = re.compile(
 	r"^assignment7prob2-(?P<database>.+)-(?P<batch_size>\d+)-(?P<query_size>tiny|small|medium|big)\.out$"
 )
@@ -74,16 +81,18 @@ def collect_results(output_dir: Path):
 	return grouped
 
 
-def best_for_metric(runs: List[Tuple[int, Dict[str, float], str]], metric_name: str) -> Optional[Tuple[int, float, str]]:
+def best_run(runs: List[Tuple[int, Dict[str, float], str]]) -> Optional[Tuple[int, Dict[str, float], str]]:
 	candidates = []
 	for batch_size, metrics, filename in runs:
-		if metric_name in metrics:
-			candidates.append((batch_size, metrics[metric_name], filename))
+		if "perform_nn_queries" in metrics:
+			query_time = metrics["perform_nn_queries"]
+			candidates.append((batch_size, query_time, metrics, filename))
 
 	if not candidates:
 		return None
 
-	return min(candidates, key=lambda item: item[1])
+	batch_size, _, metrics, filename = min(candidates, key=lambda item: (item[1], item[0], item[3]))
+	return batch_size, metrics, filename
 
 
 def print_report(grouped):
@@ -117,16 +126,44 @@ def print_report(grouped):
 			successful = sorted(batch for batch, _, _ in runs)
 			print(f"  Successful batch sizes: {', '.join(str(b) for b in successful)}")
 
-			for metric_name in METRIC_PATTERNS.keys():
-				best = best_for_metric(runs, metric_name)
-				if best is None:
-					print(f"  - {METRIC_LABELS[metric_name]}: no data")
-				else:
-					batch_size, seconds, _ = best
-					print(
-						f"  - {METRIC_LABELS[metric_name]}: best batch size = {batch_size} "
-						f"({seconds:.6f} s)"
-					)
+			best = best_run(runs)
+			if best is None:
+				print("  No runs with query time available.")
+				print()
+				continue
+
+			batch_size, metrics, _ = best
+			load_dataset = metrics.get("load_dataset_cpu")
+			transfer_dataset = metrics.get("transfer_dataset_gpu")
+			load_queries = metrics.get("load_queries_cpu")
+			transfer_queries = metrics.get("transfer_queries_gpu")
+			query_time = metrics["perform_nn_queries"]
+			transfer_results = metrics.get("transfer_results_cpu")
+			query_count = QUERY_COUNTS[query_size]
+			throughput = query_count / query_time if query_time else float("inf")
+
+			total_time = 0.0
+			for key in METRIC_PATTERNS.keys():
+				if key in metrics:
+					total_time += metrics[key]
+
+			parts = [
+				f"optimized for query time: {query_time:.6f} s",
+				f"throughput: {throughput:.6f} queries/s",
+			]
+			if load_dataset is not None:
+				parts.append(f"load dataset {load_dataset:.6f} s")
+			if transfer_dataset is not None:
+				parts.append(f"transfer dataset {transfer_dataset:.6f} s")
+			if load_queries is not None:
+				parts.append(f"load queries {load_queries:.6f} s")
+			if transfer_queries is not None:
+				parts.append(f"transfer queries {transfer_queries:.6f} s")
+			if transfer_results is not None:
+				parts.append(f"transfer results {transfer_results:.6f} s")
+			parts.append(f"total {total_time:.6f} s")
+
+			print(f"  Best batch size: {batch_size} ({'; '.join(parts)})")
 
 			print()
 

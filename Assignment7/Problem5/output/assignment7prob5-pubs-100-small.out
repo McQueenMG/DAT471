@@ -1,0 +1,26 @@
+21th query was erroneous: got "The West Acres Club", but expected "Fox And Hounds"
+22th query was erroneous: got "Sir Joshua Reynolds", but expected "Plympton Conservative Club"
+31th query was erroneous: got "Black Bull", but expected "Whittlesey Conservative Club"
+41th query was erroneous: got "The Grapes", but expected "The Crown Inn"
+43th query was erroneous: got "Draft house", but expected "Kings arms"
+46th query was erroneous: got "The Avenue Hotel", but expected "Tollemache Inn"
+47th query was erroneous: got "Nocturnal", but expected "Zy Bar"
+49th query was erroneous: got "Wyndham Arms", but expected "Hardie's"
+58th query was erroneous: got "The Warehouse", but expected "The Three Horse Shoes"
+59th query was erroneous: got "Edwards", but expected "Taboo"
+72th query was erroneous: got "Leicester Banks Sports Club", but expected "Old Aylestone Social Club Ltd"
+74th query was erroneous: got "The rake", but expected "Miraflores bar & lounge"
+76th query was erroneous: got "Wine Vaults", but expected "The Oxford Arms"
+77th query was erroneous: got "Cavalieri", but expected "Shanakee"
+84th query was erroneous: got "Blue Bell", but expected "Ye Olde Fleece"
+86th query was erroneous: got "Orchard Foods", but expected "Wickford Community Association"
+92th query was erroneous: got "BOROUGH ARMS LTD", but expected "LYMINGTON COMMUNITY ASSOCIATION"
+97th query was erroneous: got "The Church Inn", but expected "Mobberley Victory Hall Memorial Club"
+Loading dataset (46988 vectors of length 2) to the CPU took 0.18619441986083984
+Transferring dataset to the GPU took 0.23163342475891113
+Loading queries (100 vectors of length 2) to the CPU took 0.0011396408081054688
+Transferring queries to the GPU took 0.00012874603271484375
+Performing 100 NN queries took 1.4525156021118164
+Number of erroneous queries: 18
+Transferring results to the CPU took 0.00016069412231445312
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_small.txt, Batch size: 100

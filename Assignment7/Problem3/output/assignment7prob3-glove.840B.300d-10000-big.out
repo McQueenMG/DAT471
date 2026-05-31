@@ -1,0 +1,2 @@
+/var/spool/slurmd/job224839/slurm_script: line 41: 2069808 Killed                  apptainer exec --bind "${data}:/mnt/data/${data_base}:ro" --bind "${query}:/mnt/queries/${query_base}:ro" --bind "${facit}:/mnt/facit/${facit_base}:ro" "${containerpath}" python3 "${base_dir}/nnquery.py" -d /mnt/data/${data_base} -q /mnt/queries/${query_base} -l /mnt/facit/${facit_base} -b ${batchsize}
+Data: /data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d.txt, Query: /data/courses/2026_dat471_dit066/datasets/glove/glove.840B.300d_queries_big.txt, Batch size: 10000

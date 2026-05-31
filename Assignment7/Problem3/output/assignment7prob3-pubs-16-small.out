@@ -1,0 +1,22 @@
+31th query was erroneous: got "Black Bull", but expected "Whittlesey Conservative Club"
+41th query was erroneous: got "Plush", but expected "The Crown Inn"
+43th query was erroneous: got "Draft house", but expected "Kings arms"
+44th query was erroneous: got "Kirkcaldy Golf Club", but expected "Raith Rovers Football Club"
+46th query was erroneous: got "Grantham Snooker & Pool Club", but expected "Tollemache Inn"
+47th query was erroneous: got "Bar Ibiza", but expected "Zy Bar"
+49th query was erroneous: got "Bar 104", but expected "Hardie's"
+59th query was erroneous: got "Edwards", but expected "Taboo"
+72th query was erroneous: got "Leicester Banks Sports Club", but expected "Old Aylestone Social Club Ltd"
+74th query was erroneous: got "The rake", but expected "Miraflores bar & lounge"
+76th query was erroneous: got "Wine Vaults", but expected "The Oxford Arms"
+77th query was erroneous: got "BeerKat", but expected "Shanakee"
+84th query was erroneous: got "Curley's Bar", but expected "Ye Olde Fleece"
+86th query was erroneous: got "Orchard Foods", but expected "Wickford Community Association"
+89th query was erroneous: got "Spalding Services Club", but expected "The Moorings"
+92th query was erroneous: got "BOROUGH ARMS LTD", but expected "LYMINGTON COMMUNITY ASSOCIATION"
+97th query was erroneous: got "The Church Inn", but expected "Mobberley Victory Hall Memorial Club"
+98th query was erroneous: got "The Crown Hotel", but expected "The Blue Ball"
+Loading dataset (46988 vectors of length 2) took 0.13652300834655762
+Performing 100 NN queries took 0.04900074005126953
+Number of erroneous queries: 18
+Data: /data/courses/2026_dat471_dit066/datasets/pubs/pubs.csv, Query: /data/courses/2026_dat471_dit066/datasets/pubs/pub_queries_small.txt, Batch size: 16
